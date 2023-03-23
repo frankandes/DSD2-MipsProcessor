@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1679611094" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Execute.dcp">
+  <File Type="PA-TCL" Name="alu.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="alu_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="alu_reports.tcl"/>
+  <File Type="RDS-RDS" Name="alu.vds"/>
+  <File Type="RDS-UTIL" Name="alu_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="alu_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="alu.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="alu_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="alu_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/design/global_pkg.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/global_pkg.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/notN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/notN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/sllN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/sllN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/srlN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/srlN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/sraN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/sraN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/orN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/orN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/andN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/andN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/xorN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/xorN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/fulladder.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/fulladder.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/addsubN.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/addsubN.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/carrysavemult.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/carrysavemult.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/ALU.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/design/ALU.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/Execute.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/Execute.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/ControlUnit.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/ControlUnit.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/InstructionMem.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/InstructionMem.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/InstructionFetch.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/InstructionFetch.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/RegisterFile.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/RegisterFile.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/design/InstructionDecode.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/design/InstructionDecode.vhd"/>
+        <Attr Name="ImportTime" Val="1679588722"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="alu"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/Execute.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

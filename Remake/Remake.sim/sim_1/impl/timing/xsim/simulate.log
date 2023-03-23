@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+Failure: Testbench Concluded.
+Time: 1800 ns  Iteration: 0  Process: /aluTBsynth/stim_proc  File: C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/aluTBsynth.vhd
+$finish called at time : 1800 ns : File "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/aluTBsynth.vhd" Line 99

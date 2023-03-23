@@ -1,0 +1,21 @@
+# compile vhdl design source files
+vhdl2008 xil_defaultlib  \
+"../../../../Remake.srcs/sources_1/imports/design/global_pkg.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/notN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/sllN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/srlN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/sraN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/orN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/andN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/xorN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/fulladder.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/addsubN.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/carrysavemult.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/ALU.vhd" \
+"../../../../Remake.srcs/sources_1/imports/design/Execute.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../Remake.srcs/sim_1/imports/sim/ExecuteTB.vhd" \
+
+# Do not sort compile order
+nosort

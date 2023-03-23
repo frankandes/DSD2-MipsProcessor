@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Mar 23 17:32:12 2023
+| Date         : Thu Mar 23 18:10:41 2023
 | Host         : DESKTOP-5CIH7MF running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Execute_utilization_synth.rpt -pb Execute_utilization_synth.pb
 | Design       : Execute
@@ -31,8 +31,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 1035 |     0 |          0 |     20800 |  4.98 |
-|   LUT as Logic          | 1035 |     0 |          0 |     20800 |  4.98 |
+| Slice LUTs*             | 1033 |     0 |          0 |     20800 |  4.97 |
+|   LUT as Logic          | 1033 |     0 |          0 |     20800 |  4.97 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
 | Slice Registers         |    0 |     0 |          0 |     41600 |  0.00 |
 |   Register as Flip Flop |    0 |     0 |          0 |     41600 |  0.00 |
@@ -89,26 +89,26 @@ Warning! LUT value is adjusted to account for LUT combining.
 4. IO and GT Specific
 ---------------------
 
-+-----------------------------+------+-------+------------+-----------+-------+
-|          Site Type          | Used | Fixed | Prohibited | Available | Util% |
-+-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    0 |     0 |          0 |       106 |  0.00 |
-| Bonded IPADs                |    0 |     0 |          0 |        10 |  0.00 |
-| Bonded OPADs                |    0 |     0 |          0 |         4 |  0.00 |
-| PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
-| PHASER_REF                  |    0 |     0 |          0 |         5 |  0.00 |
-| OUT_FIFO                    |    0 |     0 |          0 |        20 |  0.00 |
-| IN_FIFO                     |    0 |     0 |          0 |        20 |  0.00 |
-| IDELAYCTRL                  |    0 |     0 |          0 |         5 |  0.00 |
-| IBUFDS                      |    0 |     0 |          0 |       104 |  0.00 |
-| GTPE2_CHANNEL               |    0 |     0 |          0 |         2 |  0.00 |
-| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        20 |  0.00 |
-| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        20 |  0.00 |
-| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       250 |  0.00 |
-| IBUFDS_GTE2                 |    0 |     0 |          0 |         2 |  0.00 |
-| ILOGIC                      |    0 |     0 |          0 |       106 |  0.00 |
-| OLOGIC                      |    0 |     0 |          0 |       106 |  0.00 |
-+-----------------------------+------+-------+------------+-----------+-------+
++-----------------------------+------+-------+------------+-----------+--------+
+|          Site Type          | Used | Fixed | Prohibited | Available |  Util% |
++-----------------------------+------+-------+------------+-----------+--------+
+| Bonded IOB                  |  187 |     0 |          0 |       106 | 176.42 |
+| Bonded IPADs                |    0 |     0 |          0 |        10 |   0.00 |
+| Bonded OPADs                |    0 |     0 |          0 |         4 |   0.00 |
+| PHY_CONTROL                 |    0 |     0 |          0 |         5 |   0.00 |
+| PHASER_REF                  |    0 |     0 |          0 |         5 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |          0 |        20 |   0.00 |
+| IN_FIFO                     |    0 |     0 |          0 |        20 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |          0 |         5 |   0.00 |
+| IBUFDS                      |    0 |     0 |          0 |       104 |   0.00 |
+| GTPE2_CHANNEL               |    0 |     0 |          0 |         2 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        20 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        20 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       250 |   0.00 |
+| IBUFDS_GTE2                 |    0 |     0 |          0 |         2 |   0.00 |
+| ILOGIC                      |    0 |     0 |          0 |       106 |   0.00 |
+| OLOGIC                      |    0 |     0 |          0 |       106 |   0.00 |
++-----------------------------+------+-------+------------+-----------+--------+
 
 
 5. Clocking
@@ -154,6 +154,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | LUT6     |  710 |                 LUT |
 | LUT5     |  224 |                 LUT |
 | LUT4     |  146 |                 LUT |
+| IBUF     |  115 |                  IO |
+| OBUF     |   72 |                  IO |
 | LUT3     |   44 |                 LUT |
 | LUT2     |   11 |                 LUT |
 | MUXF7    |    6 |               MuxFx |

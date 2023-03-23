@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../Remake.srcs/sim_1/imports/sim/aluTBsynth.vhd" \
+
+# Do not sort compile order
+nosort
