@@ -21,11 +21,12 @@ end aluTB;
 
 architecture tb of aluTB is
 
-component aluN IS
-    Port ( in1 : in  std_logic_vector(N-1 downto 0);
-           in2 : in  std_logic_vector(N-1 downto 0);
-           control : in  std_logic_vector(3 downto 0);
-           out1    : out std_logic_vector(N-1 downto 0)
+component alu IS
+Generic ( T : integer := 16);
+    Port ( A : in  std_logic_vector(N-1 downto 0);
+           B : in  std_logic_vector(N-1 downto 0);
+           OP : in  std_logic_vector(3 downto 0);
+           Y    : out std_logic_vector(N-1 downto 0)
           );
 end component;
 
@@ -70,26 +71,30 @@ constant tests : test_array :=(
 begin
 
 
-aluN_0 : aluN
+aluN_0 : alu
+    generic map (
+        T => 16
+        )
     port map (
-			in1  => in1,
-			in2  => in2,
-            control  => control,
-            out1     => out1
+			A  => in1,
+			B  => in2,
+            OP  => control,
+            Y     => out1
 		);
 
 	stim_proc:process
 	begin
 
-		for i in test_vector_array'range loop
-			in1 <= test_array.in1(i);
-			in2 <= test_array.in2(i);
-			control <= test_array.in1(control);
+		for i in tests'range loop
+			in1 <= tests(i).in1;
+			in2 <= tests(i).in2;
+			control <= tests(i).control;
+			wait for 50 ns;
 			
-			assert (out1 = test_array.out1(i)) report "the result for ALU op :" & to_hstring(test_array.in1(control)) 
-			& " is " & to_hstring(out1) & " and should be " & to_hstring(test_array.in1(out1));
+			assert (out1 = tests(i).out1) report "the result for ALU op :" & to_hstring(to_bitvector(tests(i).control)) 
+			& " is " & to_hstring(to_bitvector(out1)) & " and should be " & to_hstring(to_bitvector(tests(i).out1));
 
-			wait for 100 ns;
+			wait for 50 ns;
 		end loop;
 
 

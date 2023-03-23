@@ -61,7 +61,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="basys3"/>
-    <Option Name="WTXSimLaunchSim" Val="25"/>
+    <Option Name="WTXSimLaunchSim" Val="37"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -92,10 +92,76 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/global_pkg.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../global_pkg.vhd"/>
+          <Attr Name="ImportTime" Val="1675287275"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/notN.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../notN.vhd"/>
+          <Attr Name="ImportTime" Val="1675287251"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/sllN.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../sllN.vhd"/>
+          <Attr Name="ImportTime" Val="1675287113"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/srlN.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../srlN.vhd"/>
+          <Attr Name="ImportTime" Val="1675287119"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/sraN.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../sraN.vhd"/>
+          <Attr Name="ImportTime" Val="1675287262"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/orN.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/andN.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/xorN.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../fulladder.vhd"/>
           <Attr Name="ImportTime" Val="1679443289"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd">
+        <FileInfo SFType="VHDL2008">
+          <Attr Name="ImportPath" Val="$PPRDIR/../addsubN.vhd"/>
+          <Attr Name="ImportTime" Val="1679443288"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -108,19 +174,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd">
-        <FileInfo SFType="VHDL2008">
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../addsubN.vhd"/>
-          <Attr Name="ImportTime" Val="1679443288"/>
+      <File Path="$PSRCDIR/sources_1/new/ALU.vhd">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/ControlUnit.vhd">
         <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../ControlUnit.vhd"/>
           <Attr Name="ImportTime" Val="1677534970"/>
@@ -130,7 +191,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/RegisterFile.vhd">
         <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../RegisterFile.vhd"/>
           <Attr Name="ImportTime" Val="1677715915"/>
@@ -140,7 +200,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/InstructionDecode.vhd">
         <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../InstructionDecode.vhd"/>
           <Attr Name="ImportTime" Val="1677531856"/>
@@ -150,7 +209,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/InstructionMem.vhd">
         <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../InstructionMem.vhd"/>
           <Attr Name="ImportTime" Val="1677524687"/>
@@ -160,7 +218,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/InstructionFetch.vhd">
         <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../InstructionFetch.vhd"/>
           <Attr Name="ImportTime" Val="1677524687"/>
@@ -168,66 +225,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/ALU.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/global_pkg.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/Execute.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../global_pkg.vhd"/>
-          <Attr Name="ImportTime" Val="1675287275"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/sllN.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../sllN.vhd"/>
-          <Attr Name="ImportTime" Val="1675287113"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/srlN.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../srlN.vhd"/>
-          <Attr Name="ImportTime" Val="1675287119"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/sraN.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../sraN.vhd"/>
-          <Attr Name="ImportTime" Val="1675287262"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/DSD2-MipsProcessor/notN.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../notN.vhd"/>
-          <Attr Name="ImportTime" Val="1675287251"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Execute.vhd"/>
+          <Attr Name="ImportTime" Val="1679549795"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="carrysavemult"/>
+        <Option Name="TopModule" Val="alu"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
       </Config>
     </FileSet>
@@ -239,8 +248,26 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/ExecuteTB.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../ExecuteTB.vhd"/>
+          <Attr Name="ImportTime" Val="1679550852"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../aluTB.vhd"/>
+          <Attr Name="ImportTime" Val="1679367745"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/carrysavemultTB.vhd">
         <FileInfo SFType="VHDL2008">
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../carrysavemultTB.vhd"/>
           <Attr Name="ImportTime" Val="1679532979"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -250,7 +277,6 @@
       <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/addsubNTB.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../addsubNTB.vhd"/>
           <Attr Name="ImportTime" Val="1679444279"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -260,7 +286,6 @@
       <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/InstructionDecodeTB.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../InstructionDecodeTB.vhd"/>
           <Attr Name="ImportTime" Val="1677715915"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -270,26 +295,15 @@
       <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/InstructionFetchTB.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../InstructionFetchTB.vhd"/>
           <Attr Name="ImportTime" Val="1677524687"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd">
-        <FileInfo>
-          <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../aluTB.vhd"/>
-          <Attr Name="ImportTime" Val="1679367745"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="carrysavemult_tb"/>
+        <Option Name="TopModule" Val="Execute_TB"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -329,9 +343,7 @@
   <Runs Version="1" Minor="19">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
@@ -340,9 +352,7 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
