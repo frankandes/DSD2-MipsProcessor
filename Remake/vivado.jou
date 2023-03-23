@@ -12,3 +12,96 @@
 #-----------------------------------------------------------
 start_gui
 open_project {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.xpr}
+import_files -norecurse {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/InstructionDecode.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/InstructionMem.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/global_pkg.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/notN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/srlN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/InstructionFetch.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/sraN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/orN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/xorN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/andN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/RegisterFile.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/carrysavemult.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/fulladder.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/sllN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/Execute.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/addsubN.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/ControlUnit.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/design/ALU.vhd}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/aluTB.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/InstructionFetchTB.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/carrysavemultTB.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/carrysavemultTBsynth.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/aluTBsynth.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/ExecuteTB.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/InstructionDecodeTB.vhd} {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/sim/addsubNTB.vhd}}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+set_property is_enabled false [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/InstructionDecode.vhd}}]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/InstructionFetch.vhd}}]
+set_property is_enabled false [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/ControlUnit.vhd}}]
+set_property is_enabled false [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/RegisterFile.vhd}}]
+set_property is_enabled false [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/InstructionMem.vhd}}]
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/notN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/global_pkg.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/sllN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/srlN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/sraN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/orN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/andN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/xorN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/fulladder.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/addsubN.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/carrysavemult.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/Execute.vhd}}]
+set_property file_type {VHDL 2008} [get_files  {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/ALU.vhd}}]
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top alu [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+refresh_design
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top aluTB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source aluTB.tcl
+set_property -name {xsim.simulate.runtime} -value {1800ns} -objects [get_filesets sim_1]
+set_property dataflow_viewer_settings "min_width=16"   [current_fileset]
+close_sim
+launch_simulation
+source aluTB.tcl
+launch_simulation -mode post-implementation -type timing
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top aluTBsynth [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation -mode post-implementation -type timing
+source aluTBsynth.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top Execute [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top Execute_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+close_sim
+launch_simulation
+source Execute_TB.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top alu [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1

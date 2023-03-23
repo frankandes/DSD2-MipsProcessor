@@ -1,0 +1,4 @@
+Running: xsim.dir/carrysavemultTBSynth_behav/xsimk.exe -simmode gui -wdb carrysavemultTBSynth_behav.wdb -simrunnum 0 -socket 52426
+Design successfully loaded
+Design Loading Memory Usage: 8936 KB (Peak: 8936 KB)
+Design Loading CPU Usage: 0 ms
