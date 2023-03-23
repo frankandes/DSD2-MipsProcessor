@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/carrysavemultTB.vhd" \
+
+# Do not sort compile order
+nosort

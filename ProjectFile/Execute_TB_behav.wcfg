@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Execute_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Execute_TB" />
+            <top_module name="globals" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="102.001 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="243"></NameColumnWidth>
+      <ValueColumnWidth column_width="140"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/Execute_TB/tb_RegWrite" type="logic">
+      <obj_property name="ElementShortName">tb_RegWrite</obj_property>
+      <obj_property name="ObjectShortName">tb_RegWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_MemtoReg" type="logic">
+      <obj_property name="ElementShortName">tb_MemtoReg</obj_property>
+      <obj_property name="ObjectShortName">tb_MemtoReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_MemWrite" type="logic">
+      <obj_property name="ElementShortName">tb_MemWrite</obj_property>
+      <obj_property name="ObjectShortName">tb_MemWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_ALUControl" type="array">
+      <obj_property name="ElementShortName">tb_ALUControl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_ALUControl[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_ALUSrc" type="logic">
+      <obj_property name="ElementShortName">tb_ALUSrc</obj_property>
+      <obj_property name="ObjectShortName">tb_ALUSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RegDst" type="logic">
+      <obj_property name="ElementShortName">tb_RegDst</obj_property>
+      <obj_property name="ObjectShortName">tb_RegDst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RegSrcA" type="array">
+      <obj_property name="ElementShortName">tb_RegSrcA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_RegSrcA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RegSrcB" type="array">
+      <obj_property name="ElementShortName">tb_RegSrcB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_RegSrcB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RtDest" type="array">
+      <obj_property name="ElementShortName">tb_RtDest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_RtDest[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RdDest" type="array">
+      <obj_property name="ElementShortName">tb_RdDest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_RdDest[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_SignImm" type="array">
+      <obj_property name="ElementShortName">tb_SignImm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_SignImm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_RegWriteOut" type="logic">
+      <obj_property name="ElementShortName">tb_RegWriteOut</obj_property>
+      <obj_property name="ObjectShortName">tb_RegWriteOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_MemtoRegOut" type="logic">
+      <obj_property name="ElementShortName">tb_MemtoRegOut</obj_property>
+      <obj_property name="ObjectShortName">tb_MemtoRegOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_MemWriteOut" type="logic">
+      <obj_property name="ElementShortName">tb_MemWriteOut</obj_property>
+      <obj_property name="ObjectShortName">tb_MemWriteOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_ALUResult" type="array">
+      <obj_property name="ElementShortName">tb_ALUResult[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_ALUResult[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_WriteData" type="array">
+      <obj_property name="ElementShortName">tb_WriteData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_WriteData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/tb_WriteReg" type="array">
+      <obj_property name="ElementShortName">tb_WriteReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_WriteReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Execute_TB/TEST_CASES" type="array">
+      <obj_property name="ElementShortName">TEST_CASES[0:2]</obj_property>
+      <obj_property name="ObjectShortName">TEST_CASES[0:2]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/Execute_TB/TEST_CASES[0]" type="array">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Execute_TB/TEST_CASES[1]" type="array">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/Execute_TB/TEST_CASES[2]" type="array">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
