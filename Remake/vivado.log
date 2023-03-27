@@ -726,3 +726,234 @@ INFO: [USF-XSim-97] XSim simulation ran for 1800ns
 launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 2888.262 ; gain = 0.000
 set_property top alu [current_fileset]
 update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/utils_1/imports/synth_1/Execute.dcp with file C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1/alu.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+[Thu Mar 23 19:17:50 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+[Thu Mar 23 19:18:41 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+[Thu Mar 23 19:19:45 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+[Thu Mar 23 19:22:55 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.runs/synth_1/runme.log
+set_property top carrysavemult [current_fileset]
+update_compile_order -fileset sources_1
+set_property top carrysavemultTBSynth [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+set_property top carrysavemult_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'carrysavemult_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: The process cannot access the file because it is being used by another process: "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/simulate.log"
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+current_design rtl_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'carrysavemult_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'carrysavemult_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj carrysavemult_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/carrysavemult.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'carrysavemult'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/carrysavemultTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'carrysavemult_tb'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.fulladder [fulladder_default]
+Compiling architecture struct of entity xil_defaultlib.carrysavemult [\carrysavemult(n=32,m=16)\]
+Compiling architecture behavioral of entity xil_defaultlib.carrysavemult_tb
+Built simulation snapshot carrysavemult_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "carrysavemult_tb_behav -key {Behavioral:sim_1:Functional:carrysavemult_tb} -tclbatch {carrysavemult_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source carrysavemult_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1800ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'carrysavemult_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1800ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 2897.156 ; gain = 4.547
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'carrysavemult_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'carrysavemult_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj carrysavemult_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/carrysavemultTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'carrysavemult_tb'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-666] expression has 4 elements; expected 16 [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/carrysavemultTB.vhd:38]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit carrysavemult_tb in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2900.629 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'carrysavemult_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'carrysavemult_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj carrysavemult_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/global_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/Execute.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Execute'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/ExecuteTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Execute_TB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/InstructionDecodeTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'InstructionDecodeTB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/InstructionFetchTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'InstructionFetchTB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/addsubNTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'addsubNTB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/aluTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aluTB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/aluTBsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aluTBsynth'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/carrysavemultTBsynth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'carrysavemultTBSynth'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot carrysavemult_tb_behav xil_defaultlib.carrysavemult_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-666] expression has 4 elements; expected 16 [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/carrysavemultTB.vhd:38]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit carrysavemult_tb in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 2900.629 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Execute_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Execute_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Execute_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/Execute.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Execute'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/ExecuteTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Execute_TB'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Execute_TB_behav xil_defaultlib.Execute_TB -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Execute_TB_behav xil_defaultlib.Execute_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-923] index value <32> is out of range [31:0] of array <p_int> [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/carrysavemult.vhd:133]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit execute_tb in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2900.629 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 23 19:37:40 2023...

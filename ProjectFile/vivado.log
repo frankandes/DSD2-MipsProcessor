@@ -231,3 +231,241 @@ INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2022.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+set_property top alu [current_fileset]
+update_compile_order -fileset sources_1
+close_design
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: alu
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 2521.121 ; gain = 202.988
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'alu' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/ALU.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'notN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/notN.vhd:24]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'notN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/notN.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'sllN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sllN.vhd:27]
+	Parameter N bound to: 32 - type: integer 
+	Parameter M bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sllN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sllN.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'srlN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/srlN.vhd:27]
+	Parameter N bound to: 32 - type: integer 
+	Parameter M bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'srlN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/srlN.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'sraN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sraN.vhd:34]
+	Parameter N bound to: 32 - type: integer 
+	Parameter M bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sraN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sraN.vhd:34]
+INFO: [Synth 8-638] synthesizing module 'orN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/orN.vhd:25]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'orN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/orN.vhd:25]
+INFO: [Synth 8-638] synthesizing module 'andN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/andN.vhd:25]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'andN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/andN.vhd:25]
+INFO: [Synth 8-638] synthesizing module 'xorN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/xorN.vhd:25]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'xorN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/xorN.vhd:25]
+INFO: [Synth 8-638] synthesizing module 'addsubN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd:27]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'fulladder' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'fulladder' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'addsubN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'carrysavemult' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd:27]
+	Parameter N bound to: 32 - type: integer 
+	Parameter M bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'carrysavemult' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'alu' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/new/ALU.vhd:29]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 2621.070 ; gain = 302.938
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 2634.133 ; gain = 316.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 2634.133 ; gain = 316.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2634.133 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2732.902 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2733.297 ; gain = 415.164
+25 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2733.297 ; gain = 415.164
+set_property top aluTB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'aluTB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: The process cannot access the file because it is being used by another process: "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim/simulate.log"
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'aluTB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aluTB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj aluTB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aluTB'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot aluTB_behav xil_defaultlib.aluTB -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot aluTB_behav xil_defaultlib.aluTB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.globals
+Compiling architecture dataflow of entity xil_defaultlib.notN [notn_default]
+Compiling architecture behavioral of entity xil_defaultlib.sllN [slln_default]
+Compiling architecture behavioral of entity xil_defaultlib.srlN [srln_default]
+Compiling architecture behavioral of entity xil_defaultlib.sraN [sran_default]
+Compiling architecture dataflow of entity xil_defaultlib.orN [orn_default]
+Compiling architecture dataflow of entity xil_defaultlib.andN [andn_default]
+Compiling architecture dataflow of entity xil_defaultlib.xorN [xorn_default]
+Compiling architecture behavioral of entity xil_defaultlib.fulladder [fulladder_default]
+Compiling architecture structural of entity xil_defaultlib.addsubN [addsubn_default]
+Compiling architecture struct of entity xil_defaultlib.carrysavemult [carrysavemult_default]
+Compiling architecture structural of entity xil_defaultlib.alu [alu_default]
+Compiling architecture tb of entity xil_defaultlib.alutb
+Built simulation snapshot aluTB_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2739.316 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "aluTB_behav -key {Behavioral:sim_1:Functional:aluTB} -tclbatch {aluTB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source aluTB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 140ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'aluTB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 140ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 2739.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'aluTB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aluTB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj aluTB_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot aluTB_behav xil_defaultlib.aluTB -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot aluTB_behav xil_defaultlib.aluTB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "aluTB_behav -key {Behavioral:sim_1:Functional:aluTB} -tclbatch {aluTB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source aluTB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 140ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'aluTB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 140ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 2739.316 ; gain = 0.000
+set_property top addsubN [current_fileset]
+update_compile_order -fileset sources_1
+refresh_design
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2787.898 ; gain = 48.582
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'addsubN' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'fulladder' [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'fulladder' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'addsubN' (0#1) [C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd:27]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 2881.379 ; gain = 142.062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 2905.230 ; gain = 165.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 2905.230 ; gain = 165.914
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2921.008 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2921.008 ; gain = 181.691
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 24 17:08:43 2023...

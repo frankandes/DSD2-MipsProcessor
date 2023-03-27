@@ -17,7 +17,7 @@ use work.globals.all ; -- provides N and M to top level
 
 entity alu is
 GENERIC (
-    T : integer := 16
+    T : integer := 32
 );
 PORT (
     A : IN std_logic_vector (N -1 downto 0) ;
@@ -81,7 +81,7 @@ begin
     
     multiply_comp : entity work.carrysavemult
     generic map (N => N, M => T)
-    port map (A => A(15 downto 0), B => B(15 downto 0), P => multi_result);    
+    port map (A => A(T-1 downto 0), B => B(T-1 downto 0), P => multi_result);    
     
     
     Y <= not_result when OP = "0000" else -- NOT

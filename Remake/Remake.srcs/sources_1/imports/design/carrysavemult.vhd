@@ -14,8 +14,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity carrysavemult is
     generic (
-        N : integer := 32;
-        M : integer := 16 -- used to avoid division by 2
+        N : integer := 4;
+        M : integer := 2 -- used to avoid division by 2
     );
     port (
         a : in std_logic_vector(M-1 downto 0); -- half the size of output

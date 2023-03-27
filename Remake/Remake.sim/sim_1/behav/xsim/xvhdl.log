@@ -1,3 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sources_1/imports/design/Execute.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Execute'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/Remake/Remake.srcs/sim_1/imports/sim/ExecuteTB.vhd" into library xil_defaultlib

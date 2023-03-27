@@ -1,0 +1,7 @@
+Running: xsim.dir/carrysavemult_tb_behav/xsimk.exe -simmode gui -wdb carrysavemult_tb_behav.wdb -simrunnum 0 -socket 52879
+Design successfully loaded
+Design Loading Memory Usage: 8928 KB (Peak: 8928 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9808 KB (Peak: 9808 KB)
+Simulation CPU Usage: 15 ms

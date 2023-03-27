@@ -1,0 +1,22 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/global_pkg.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/notN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sllN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/srlN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sraN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/new/orN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/new/andN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/new/xorN.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd" \
+"../../../../ProjectFile.srcs/sources_1/new/ALU.vhd" \
+"../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd" \
+
+# Do not sort compile order
+nosort

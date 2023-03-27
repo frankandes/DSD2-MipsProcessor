@@ -2,3 +2,6 @@ Running: xsim.dir/carrysavemultTBSynth_behav/xsimk.exe -simmode gui -wdb carrysa
 Design successfully loaded
 Design Loading Memory Usage: 8936 KB (Peak: 8936 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 9820 KB (Peak: 9820 KB)
+Simulation CPU Usage: 0 ms
