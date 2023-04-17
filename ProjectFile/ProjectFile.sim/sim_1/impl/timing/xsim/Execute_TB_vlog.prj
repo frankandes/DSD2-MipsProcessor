@@ -1,6 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"carrysavemultTBSynth_time_impl.v" \
+"Execute_TB_time_impl.v" \
 
 # Do not sort compile order
 nosort

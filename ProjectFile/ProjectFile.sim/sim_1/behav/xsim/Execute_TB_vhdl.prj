@@ -16,7 +16,8 @@ vhdl2008 xil_defaultlib  \
 vhdl xil_defaultlib  \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd" \
 "../../../../ProjectFile.srcs/sources_1/new/ALU.vhd" \
-"../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/Execute.vhd" \
+"../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/ExecuteTB.vhd" \
 
 # Do not sort compile order
 nosort

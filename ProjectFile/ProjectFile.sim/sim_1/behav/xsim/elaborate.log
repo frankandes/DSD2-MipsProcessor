@@ -1,7 +1,28 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot aluTB_behav xil_defaultlib.aluTB -log elaborate.log 
+Running: F:/Vitis/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Execute_TB_behav xil_defaultlib.Execute_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.globals
+Compiling architecture dataflow of entity xil_defaultlib.notN [notn_default]
+Compiling architecture behavioral of entity xil_defaultlib.sllN [slln_default]
+Compiling architecture behavioral of entity xil_defaultlib.srlN [srln_default]
+Compiling architecture behavioral of entity xil_defaultlib.sraN [sran_default]
+Compiling architecture dataflow of entity xil_defaultlib.orN [orn_default]
+Compiling architecture dataflow of entity xil_defaultlib.andN [andn_default]
+Compiling architecture dataflow of entity xil_defaultlib.xorN [xorn_default]
+Compiling architecture behavioral of entity xil_defaultlib.fulladder [fulladder_default]
+Compiling architecture structural of entity xil_defaultlib.addsubN [addsubn_default]
+Compiling architecture struct of entity xil_defaultlib.carrysavemult [carrysavemult_default]
+Compiling architecture structural of entity xil_defaultlib.alu [alu_default]
+Compiling architecture behavioral of entity xil_defaultlib.Execute [execute_default]
+Compiling architecture behavioral of entity xil_defaultlib.execute_tb
+Built simulation snapshot Execute_TB_behav

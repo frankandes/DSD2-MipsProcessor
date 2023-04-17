@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.runs/impl_1/Execute.tcl"
+  variable script "E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.runs/impl_1/Execute.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -122,26 +124,29 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param chipscope.maxJobs 5
+  set_param synth.incrementalSynthesisCache C:/Users/sfand/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-20904-DESKTOP-OK3HDTO/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
+  set_property board_part_repo_paths {C:/Users/sfand/AppData/Roaming/Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
   set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.xpr} [current_project]
-  set_property ip_output_repo {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.cache/ip}} [current_project]
+  set_property webtalk.parent_dir E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.cache/wt [current_project]
+  set_property parent.project_path E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.xpr [current_project]
+  set_property ip_output_repo E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.runs/synth_1/Execute.dcp}}
+  add_files -quiet E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.runs/synth_1/Execute.dcp
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top Execute -part xc7a35tcpg236-1 
+  link_design -top Execute -part xc7a35tcpg236-1 -mode out_of_context 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
