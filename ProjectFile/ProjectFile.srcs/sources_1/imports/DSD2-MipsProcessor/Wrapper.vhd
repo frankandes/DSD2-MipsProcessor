@@ -9,7 +9,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity mips_wrapper is
     port (
         clk : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        WriteData : out std_logic_vector(31 downto 0);
+        Result : out std_logic_vector(31 downto 0)
     );
 end mips_wrapper;
 
@@ -265,6 +267,9 @@ begin
             Result => Result_int,
             WriteRegOut => WriteRegOut_wb_int,
             RegWriteOut => RegWriteOut_wb_int
-        );   
+        ); 
+    
+    WriteData <= Result_int;
+    Result <= ALUResult_int;  
     
 end struct;

@@ -1,5 +1,5 @@
 # compile vhdl design source files
-vhdl xil_defaultlib  \
+vhdl2008 xil_defaultlib  \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/global_pkg.vhd" \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/notN.vhd" \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/sllN.vhd" \
@@ -9,15 +9,23 @@ vhdl xil_defaultlib  \
 "../../../../ProjectFile.srcs/sources_1/new/andN.vhd" \
 "../../../../ProjectFile.srcs/sources_1/new/xorN.vhd" \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd" \
-
-vhdl2008 xil_defaultlib  \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/addsubN.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd" \
 "../../../../ProjectFile.srcs/sources_1/new/ALU.vhd" \
 "../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/Execute.vhd" \
-"../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/ExecuteTB.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/ControlUnit.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/RegisterFile.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/InstructionDecode.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/InstructionMem.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/InstructionFetch.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/new/data_memory.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/new/seven_seg_controller.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/new/MemoryStage.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/new/WriteBack.vhd" \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/Wrapper.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd" \
 
 # Do not sort compile order
 nosort

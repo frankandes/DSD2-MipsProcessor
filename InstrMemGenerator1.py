@@ -1,6 +1,6 @@
 # enter machine code (in hex) here 
 # e.g. addi a0 a0 0x1 -- a0 <= a0 + 0x1   -- a0 = 0x1  -- 20840001
-l = ["20840001"]
+l = ["00221820"]
 
 for i in l:
     for j in range(4):

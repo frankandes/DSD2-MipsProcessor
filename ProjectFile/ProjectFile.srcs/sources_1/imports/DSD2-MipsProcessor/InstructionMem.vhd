@@ -31,14 +31,14 @@ end InstructionMem;
 architecture Behavioral of InstructionMem is
 
     type mem_file is array (0 to 1023) of STD_LOGIC_VECTOR (data_width -1 downto 0);
-    signal mem : mem_file := (x"11", x"00", x"00", x"00",
-                              x"11", x"11", x"11", x"11",
-                              x"22", x"22", x"22", x"22",
-                              x"33", x"33", x"33", x"33",
-                              x"44", x"44", x"44", x"44", 
-                              x"80", x"60", x"40", x"20", 
-                              x"10", x"10", x"10", x"10", 
-                              others => x"00");
+    signal mem : mem_file :=    (
+                                x"34", x"21", x"00", x"01",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"42", x"00", x"01",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"20",
+                                x"00", x"00", x"00", x"00",
+                                others => x"00");
 
 begin
 

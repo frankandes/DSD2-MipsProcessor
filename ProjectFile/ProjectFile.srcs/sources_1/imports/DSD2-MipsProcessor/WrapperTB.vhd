@@ -14,20 +14,26 @@ architecture bench of mips_wrapper_tb is
   component mips_wrapper
       port (
           clk : in std_logic;
-          reset : in std_logic
+          reset : in std_logic;
+          WriteData : out std_logic_vector (31 downto 0);
+          Result : out std_logic_vector (31 downto 0)
       );
   end component;
 
   signal clk: std_logic;
-  signal reset: std_logic;   
+  signal reset: std_logic; 
+  signal WriteData : std_logic_vector (31 downto 0);
+  signal Result : std_logic_vector (31 downto 0);
 
-  constant clock_period: time := 100 ns;
+  constant clock_period: time := 50 ns;
   signal stop_the_clock: boolean;
 
 begin
 
   uut: mips_wrapper port map ( clk   => clk,
-                               reset => reset );
+                               reset => reset,
+                               WriteData => WriteData,
+                               Result => Result);
 
   stimulus: process
   begin
@@ -39,7 +45,7 @@ begin
     reset <= '0';
     wait for clock_period;
 
-    wait for 800 ns;
+    wait for 1000 ns;
 
 
     -- Put test bench stimulus code here
