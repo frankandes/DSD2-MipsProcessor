@@ -23,13 +23,14 @@ end InstructionFetch;
 
 architecture Behavioral of InstructionFetch is
     signal pc : STD_LOGIC_VECTOR (31 downto 0);
+    signal instructionOut : STD_LOGIC_VECTOR (31 downto 0);
 
 begin
 
     Memory : entity work.InstructionMem
     port map (
         addr => pc(27 downto 0),
-        d_out => instruction
+        d_out => instructionOut
     );
 
     process (clk, rst)
