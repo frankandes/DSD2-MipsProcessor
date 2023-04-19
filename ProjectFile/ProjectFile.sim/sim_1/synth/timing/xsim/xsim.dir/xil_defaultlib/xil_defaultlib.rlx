@@ -2,9 +2,10 @@
 2020.2
 Oct 14 2022
 05:20:55
-C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/synth/timing/xsim/carrysavemultTBSynth_time_synth.v,1679609322,verilog,,,,Execute;alu;glbl;sllN;sraN;srlN,,,,,,,,
+C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.sim/sim_1/synth/timing/xsim/mips_wrapper_tb_time_synth.v,1681844103,verilog,,,,Execute;InstructionDecode;InstructionFetch;RAM32M_HD1;RAM32M_HD12;RAM32M_HD2;RAM32M_HD3;RAM32M_HD5;RAM32M_HD6;RAM32M_HD7;RAM32M_HD8;RAM32M_HD9;RAM32M_UNIQ_BASE_;RAM32X1D_HD10;RAM32X1D_HD11;RAM32X1D_HD4;RAM32X1D_UNIQ_BASE_;RegisterFile;alu;glbl;mips_wrapper;orN;sllN;sraN;srlN,,,,,,,,
 C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/aluTB.vhd,1679589592,vhdl,,,,alutb,,,,,,,,
 C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sim_1/new/aluTBsynth.vhd,1679590347,vhdl,,,,alutbsynth,,,,,,,,
 C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sim_1/new/carrysavemultTBsynth.vhd,1679604880,vhdl,,,,carrysavemulttbsynth,,,,,,,,
+C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd,1681841376,vhdl2008,,,,mips_wrapper_tb,,,,,,,,
 C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd,1679588722,vhdl,,,,carrysavemult,,,,,,,,
 C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/fulladder.vhd,1679588722,vhdl,C:/Users/Frank Andes/Documents/VScode_VHDL/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/carrysavemult.vhd,,,fulladder,,,,,,,,

@@ -32,12 +32,23 @@ architecture Behavioral of InstructionMem is
 
     type mem_file is array (0 to 1023) of STD_LOGIC_VECTOR (data_width -1 downto 0);
     signal mem : mem_file :=    (
-                                x"34", x"21", x"00", x"01",
-                                x"00", x"00", x"00", x"00",
-                                x"34", x"42", x"00", x"01",
-                                x"00", x"00", x"00", x"00",
-                                x"00", x"22", x"18", x"20",
-                                x"00", x"00", x"00", x"00",
+                                x"34", x"21", x"00", x"01", -- ORI 1
+                                x"34", x"42", x"00", x"02", -- ORI 1
+--                                x"00", x"00", x"00", x"00",
+--                                x"00", x"22", x"18", x"20", -- ADD = 2
+--                                x"00", x"00", x"00", x"00",
+--                                x"00", x"22", x"18", x"22", -- SUB = 0
+--                                x"00", x"00", x"00", x"00",
+--                                x"00", x"22", x"18", x"24", -- AND = 1
+--                                x"00", x"00", x"00", x"00",
+--                                x"00", x"22", x"18", x"00", -- SLL = 2
+                                
+                                
+                                
+                                
+--                                x"00", x"00", x"00", x"00",
+--                                x"00", x"22", x"18", x"19", -- MULTU
+                                
                                 others => x"00");
 
 begin
