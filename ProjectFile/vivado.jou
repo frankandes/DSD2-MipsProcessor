@@ -2,10 +2,10 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Sun Apr 16 20:41:50 2023
-# Process ID: 19268
+# Start of session at: Wed Apr 19 15:47:15 2023
+# Process ID: 8092
 # Current directory: E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15188 E:\SchoolWork\VivadoProjects\DSD2-MipsProcessor\ProjectFile\ProjectFile.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8104 E:\SchoolWork\VivadoProjects\DSD2-MipsProcessor\ProjectFile\ProjectFile.xpr
 # Log file: E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/vivado.log
 # Journal file: E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile\vivado.jou
 # Running On: DESKTOP-OK3HDTO, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 10, Host memory: 17069 MB
@@ -13,3 +13,238 @@
 start_gui
 open_project E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.xpr
 update_compile_order -fileset sources_1
+launch_simulation
+source mips_wrapper_tb.tcl
+close_sim
+launch_simulation
+source mips_wrapper_tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 70
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+run all
+relaunch_sim
+relaunch_sim
+run all
+relaunch_sim
+run all
+run all
+run all
+relaunch_sim
+run all
+run all
+run all
+relaunch_sim
+close_sim
+launch_simulation
+source mips_wrapper_tb.tcl
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 70
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 68
+relaunch_sim
+step
+run all
+step
+step
+run all
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 73
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 69
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 70
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 71
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 75
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 76
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 77
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 66
+relaunch_sim
+step
+step
+step
+step
+step
+run all
+run all
+step
+step
+step
+step
+run all
+step
+step
+step
+step
+step
+step
+step
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+relaunch_sim
+step
+step
+step
+step
+run all
+run all
+run all
+run all
+step
+run all
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 79
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 80
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 81
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 82
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+relaunch_sim
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 78
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+restart
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 66
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 68
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 69
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 70
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 71
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 73
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 75
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 76
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 77
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 79
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 78
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 66
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 68
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 71
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 72
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 74
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 77
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 78
+relaunch_sim
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run 10 ps
+run 10 ps
+run 10 ps
+run 10 ps
+relaunch_sim
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run 10 ps
+run 10 ps
+run 10 ps
+run all
+run all
+run all
+run all
+run all
+run all
+relaunch_sim
+run all
+run all
+run all
+run all
+run all
+run all
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 66
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 68
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 71
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 72
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 74
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 77
+remove_bps -file {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} -line 78
+run all
+relaunch_sim
+relaunch_sim
+relaunch_sim
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 68
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 71
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 72
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 75
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 78
+add_bp {E:/SchoolWork/VivadoProjects/DSD2-MipsProcessor/ProjectFile/ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd} 79
+relaunch_sim
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+close_sim

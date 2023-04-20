@@ -37,9 +37,8 @@ architecture bench of mips_wrapper_tb is
 
     constant testcases: testcase_array := (
     (x"00000001", x"00000001"),
-    (x"FFFE0001", x"00000000")
---    (x"0F1E0F00", x"00000000"),
---    (x"0000FE01", x"00000000"),
+    (x"00000002", x"00000002"),
+    (x"00000003", x"00000003")
 --    (x"0000FFFF", x"00000000"),
 --    (x"00007FFF", x"00000000"),
 --    (x"40000000", x"00000000"),
@@ -61,17 +60,41 @@ begin
     reset <= '1';
     wait for clock_period;
     reset <= '0';
-    wait for clock_period;
+
 
     -- loop through test cases
     for i in testcases'range loop
         -- Put test case stimulus code here
-        --wait until Result'event;
-        assert Result = testcases(i).ALUResultTest report "Result = "  & to_string(Result) severity note;
-
-        wait for clock_period*2;
-        --wait until WriteData'event;
-        assert WriteData = testcases(i).WriteDataTest report "WriteData = "  & to_string(WriteData) severity note;
+        wait until Result'event or WriteData'event;
+            
+            -- if both
+            if WriteData'event and WriteData /= x"00000000" and WriteData /= x"ffffffff" then
+                if Result'event and Result /= x"00000000" then
+                    wait for 1 ns;
+                    
+                    assert WriteData = testcases(i).WriteDataTest report "WriteData = "  & to_string(WriteData) & 
+                    " and should be " & to_string(testcases(i).WriteDataTest) severity note;
+                    
+                    assert Result = testcases(i).ALUResultTest report "Result = "  & to_string(Result) & 
+                    " and should be " & to_string(testcases(i).ALUResultTest) severity note;
+                    
+            -- just WriteData change
+            elsif WriteData'event then
+                assert WriteData = testcases(i).WriteDataTest report "WriteData = "  & to_string(WriteData) & 
+                    " and should be " & to_string(testcases(i).WriteDataTest) severity note;
+                
+                wait for 1 ns;  -- allow signal to settle for some reason
+                
+                
+                
+            end if;
+            
+        wait until WriteData'event and WriteData /= x"00000000" and WriteData /= x"ffffffff";
+        
+            --wait for 1 ns;
+            assert WriteData = testcases(i).WriteDataTest report "WriteData = "  & to_string(WriteData) & 
+            " and should be " & to_string(testcases(i).WriteDataTest) severity note;
+            
         
         --wait for clock_period*2;
     end loop;
