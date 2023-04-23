@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl2008 xil_defaultlib  \
-"../../../../../ProjectFile.srcs/sources_1/imports/DSD2-MipsProcessor/WrapperTB.vhd" \
-
-# Do not sort compile order
-nosort

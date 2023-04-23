@@ -1,7 +1,0 @@
-Running: xsim.dir/mips_wrapper_tb_time_synth/xsimk.exe -simmode gui -wdb mips_wrapper_tb_time_synth.wdb -simrunnum 0 -socket 60326
-Design successfully loaded
-Design Loading Memory Usage: 22868 KB (Peak: 22868 KB)
-Design Loading CPU Usage: 31 ms
-Simulation completed
-Simulation Memory Usage: 29156 KB (Peak: 29156 KB)
-Simulation CPU Usage: 93 ms

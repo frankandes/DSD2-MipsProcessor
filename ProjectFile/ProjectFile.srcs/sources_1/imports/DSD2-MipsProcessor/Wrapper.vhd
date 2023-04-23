@@ -119,6 +119,7 @@ architecture struct of mips_wrapper is
     --
     signal RegWriteOut_wb_int : std_logic;
 
+    --
 
 begin
     
@@ -256,6 +257,7 @@ begin
     end process;
 
     -- Writeback instantiation
+
 
     writeback : entity work.Writeback
         port map (

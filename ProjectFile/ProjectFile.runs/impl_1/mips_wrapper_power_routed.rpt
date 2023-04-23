@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Tue Apr 18 14:54:37 2023
+| Date             : Thu Apr 20 15:35:30 2023
 | Host             : DESKTOP-5CIH7MF running 64-bit major release  (build 9200)
 | Command          : report_power -file mips_wrapper_power_routed.rpt -pb mips_wrapper_power_summary_routed.pb -rpx mips_wrapper_power_routed.rpx
 | Design           : mips_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 8.247        |
+| Total On-Chip Power (W)  | 0.758        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 8.133        |
-| Device Static (W)        | 0.114        |
+| Dynamic (W)              | 0.688        |
+| Device Static (W)        | 0.070        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 43.8         |
-| Junction Temperature (C) | 66.2         |
+| Max Ambient (C)          | 81.2         |
+| Junction Temperature (C) | 28.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     4.494 |     1341 |       --- |             --- |
-|   LUT as Logic           |     4.170 |      962 |     20800 |            4.63 |
-|   LUT as Distributed RAM |     0.250 |       44 |      9600 |            0.46 |
-|   Register               |     0.050 |      116 |     41600 |            0.28 |
-|   CARRY4                 |     0.022 |       10 |      8150 |            0.12 |
-|   F7/F8 Muxes            |     0.002 |        6 |     32600 |            0.02 |
-|   Others                 |     0.000 |        5 |       --- |             --- |
-| Signals                  |     3.639 |     1250 |       --- |             --- |
-| Static Power             |     0.114 |          |           |                 |
-| Total                    |     8.247 |          |           |                 |
+| Slice Logic              |     0.241 |     2463 |       --- |             --- |
+|   LUT as Logic           |     0.208 |     1142 |     20800 |            5.49 |
+|   CARRY4                 |     0.018 |       10 |      8150 |            0.12 |
+|   Register               |     0.015 |      264 |     41600 |            0.63 |
+|   LUT as Distributed RAM |    <0.001 |      512 |      9600 |            5.33 |
+|   F7/F8 Muxes            |    <0.001 |      390 |     32600 |            1.20 |
+|   LUT as Shift Register  |    <0.001 |        2 |      9600 |            0.02 |
+|   Others                 |     0.000 |        8 |       --- |             --- |
+| Signals                  |     0.256 |     1649 |       --- |             --- |
+| Block RAM                |     0.191 |        1 |        50 |            2.00 |
+| Static Power             |     0.070 |          |           |                 |
+| Total                    |     0.758 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,8 +73,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     8.180 |       8.133 |      0.047 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.017 |       0.000 |      0.017 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.694 |       0.684 |      0.011 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -80,7 +82,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.005 |       0.005 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -135,33 +137,16 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------------------------------+-----------+
-| Name                                | Power (W) |
-+-------------------------------------+-----------+
-| mips_wrapper                        |     8.133 |
-|   execute                           |     3.450 |
-|     ALU_inst                        |     3.388 |
-|       or_comp                       |     0.018 |
-|       sll_comp                      |     0.617 |
-|       sra_comp                      |     0.885 |
-|       srl_comp                      |     0.702 |
-|   inst_decode                       |     4.165 |
-|     RegisterFile                    |     4.165 |
-|       reg_file_reg_r1_0_31_0_5      |     0.113 |
-|       reg_file_reg_r1_0_31_12_17    |     0.235 |
-|       reg_file_reg_r1_0_31_18_23    |     0.191 |
-|       reg_file_reg_r1_0_31_24_29    |     0.217 |
-|       reg_file_reg_r1_0_31_30_31    |     0.055 |
-|       reg_file_reg_r1_0_31_30_31__0 |     0.084 |
-|       reg_file_reg_r1_0_31_6_11     |     0.251 |
-|       reg_file_reg_r2_0_31_0_5      |     0.091 |
-|       reg_file_reg_r2_0_31_12_17    |     0.122 |
-|       reg_file_reg_r2_0_31_18_23    |     0.055 |
-|       reg_file_reg_r2_0_31_24_29    |     0.066 |
-|       reg_file_reg_r2_0_31_30_31    |     0.020 |
-|       reg_file_reg_r2_0_31_30_31__0 |     0.016 |
-|       reg_file_reg_r2_0_31_6_11     |     0.112 |
-|   inst_fetch                        |     0.280 |
-+-------------------------------------+-----------+
++------------------+-----------+
+| Name             | Power (W) |
++------------------+-----------+
+| mips_wrapper     |     0.688 |
+|   execute        |     0.008 |
+|     ALU_inst     |     0.008 |
+|   inst_decode    |     0.195 |
+|     RegisterFile |     0.195 |
+|   inst_fetch     |     0.449 |
+|   writeback      |     0.024 |
++------------------+-----------+
 
 

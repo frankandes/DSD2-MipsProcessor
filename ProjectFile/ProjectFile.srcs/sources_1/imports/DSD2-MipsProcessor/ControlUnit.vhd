@@ -124,6 +124,10 @@ begin
                 ALUControl_sig <= "1000";
             when XORIop =>
                 ALUControl_sig <= "1011";
+            when LWop =>
+                ALUControl_sig <= "0100";
+            when SWop =>
+                ALUControl_sig <= "0100";
             when others =>
                 ALUControl_sig <= "0000";
         end case;

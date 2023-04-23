@@ -1,0 +1,401 @@
+Fibonacci Code
+
+
+-- init sequence
+load 0 into a register 1
+load 1 into a register 2
+
+-- start counting
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+add reg 1 and reg 2 into reg 3 (reg 1 = 1, reg 2 = 1)
+move reg 2 to reg 1
+move reg 3 to reg 2
+
+.. do a bunch more
+
+----------------------------------------------------------------------------------
+-- Company: RIT
+-- Engineer: Frank Andes
+-- 
+-- Create Date: 02/26/2023 05:52:29 PM
+-- Module Name: InstructionDecode - Behavioral
+-- Description: byte addressable instruction memory
+-- 1024 bytes of memory
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity InstructionMem is
+    generic (
+        addr_width : integer := 28;
+        data_width : integer := 8;
+        out_width : integer := 32
+    );
+    Port (
+        addr : in STD_LOGIC_VECTOR (addr_width -1 downto 0);
+        d_out : out STD_LOGIC_VECTOR (out_width -1 downto 0)
+    );
+end InstructionMem;
+
+architecture Behavioral of InstructionMem is
+
+    type mem_file is array (0 to 1023) of STD_LOGIC_VECTOR (data_width -1 downto 0);
+    signal mem : mem_file :=    (
+                                x"34", x"21", x"00", x"01", -- ORI 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"42", x"00", x"02", -- ORI 2
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"22", -- SUB = -1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"20", -- ADD =  3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"24", -- AND = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"00", -- SLL = 4
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"25", -- OR = 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"19", -- MULTU = 2
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"03", -- SRA = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"02", -- SRL = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"26", -- XOR = 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"20", x"42", x"00", x"01", -- ADDI = 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"02", -- ANDI = 2
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"42", x"00", x"04", -- ORI = 6
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"38", x"42", x"00", x"04", -- XORI = 2
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"42", x"00", x"ff",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"ac", x"42", x"00", x"00", -- SW ff at address x300 
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"8c", x"e3", x"03", x"00", -- LW ff at address x300
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+
+                                -- fibonacci sequence instructions
+
+
+
+
+                                
+                                others => x"00");
+
+begin
+
+    process (addr)    
+    begin
+        if (to_integer(unsigned(addr)) >= 0 and to_integer(unsigned(addr)) <= 1020) then
+            d_out <= mem(to_integer(unsigned(addr))) & mem(to_integer(unsigned(addr)) + 1) 
+            & mem(to_integer(unsigned(addr)) + 2) & mem(to_integer(unsigned(addr)) + 3);
+        else
+            d_out <= x"00000000";
+        end if; 
+    end process;
+
+end Behavioral;
+
+--------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+-- Company: RIT
+-- Engineer: Frank Andes
+-- 
+-- Create Date: 02/26/2023 05:52:29 PM
+-- Module Name: InstructionDecode - Behavioral
+-- Description: byte addressable instruction memory
+-- 1024 bytes of memory
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity InstructionMem is
+    generic (
+        addr_width : integer := 28;
+        data_width : integer := 8;
+        out_width : integer := 32
+    );
+    Port (
+        addr : in STD_LOGIC_VECTOR (addr_width -1 downto 0);
+        d_out : out STD_LOGIC_VECTOR (out_width -1 downto 0)
+    );
+end InstructionMem;
+
+architecture Behavioral of InstructionMem is
+
+    type mem_file is array (0 to 1023) of STD_LOGIC_VECTOR (data_width -1 downto 0);
+    signal mem : mem_file :=    (
+                                -- fibonacci sequence instructions
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"21", x"00", x"00", -- ORI 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"34", x"42", x"00", x"01", -- ORI 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                --
+                                x"00", x"22", x"18", x"20", -- ADD 1, 2 into 3
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"21", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"22", x"08", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"30", x"42", x"00", x"00", -- ANDI = 0
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"43", x"10", x"25", -- OR = 1
+                                x"00", x"00", x"00", x"00",
+                                x"00", x"00", x"00", x"00",
+
+                                
+
+
+
+                                
+                                others => x"00");
+
+begin
+
+    process (addr)    
+    begin
+        if (to_integer(unsigned(addr)) >= 0 and to_integer(unsigned(addr)) <= 1020) then
+            d_out <= mem(to_integer(unsigned(addr))) & mem(to_integer(unsigned(addr)) + 1) 
+            & mem(to_integer(unsigned(addr)) + 2) & mem(to_integer(unsigned(addr)) + 3);
+        else
+            d_out <= x"00000000";
+        end if; 
+    end process;
+
+end Behavioral;
+

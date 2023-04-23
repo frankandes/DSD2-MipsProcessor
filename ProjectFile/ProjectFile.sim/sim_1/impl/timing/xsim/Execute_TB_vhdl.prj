@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../../ProjectFile.srcs/sim_1/imports/DSD2-MipsProcessor/ExecuteTB.vhd" \
-
-# Do not sort compile order
-nosort

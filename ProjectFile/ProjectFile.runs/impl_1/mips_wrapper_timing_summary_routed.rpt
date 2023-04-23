@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Apr 18 14:54:37 2023
+| Date         : Thu Apr 20 15:35:30 2023
 | Host         : DESKTOP-5CIH7MF running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file mips_wrapper_timing_summary_routed.rpt -pb mips_wrapper_timing_summary_routed.pb -rpx mips_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : mips_wrapper
@@ -39,9 +39,10 @@ Timing Summary Report
 | ------------------
 ------------------------------------------------------------------------------------------------
 
-Rule       Severity          Description                  Violations  
----------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  204         
+Rule       Severity          Description                                                Violations  
+---------  ----------------  ---------------------------------------------------------  ----------  
+TIMING-17  Critical Warning  Non-clocked sequential cell                                782         
+SYNTH-5    Warning           Mapped onto distributed RAM because of timing constraints  128         
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -51,10 +52,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (204)
+1. checking no_clock (782)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (494)
+4. checking unconstrained_internal_endpoints (5540)
 5. checking no_input_delay (1)
 6. checking no_output_delay (64)
 7. checking multiple_clock (0)
@@ -64,9 +65,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (204)
+1. checking no_clock (782)
 --------------------------
- There are 204 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 782 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -79,9 +80,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (494)
---------------------------------------------------
- There are 494 pins that are not constrained for maximum delay. (HIGH)
+4. checking unconstrained_internal_endpoints (5540)
+---------------------------------------------------
+ There are 5540 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -140,7 +141,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                  558          inf        0.000                      0                  558           NA           NA                      NA                    NA  
+        inf        0.000                      0                 5604          inf        0.000                      0                 5604           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -209,578 +210,560 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay           558 Endpoints
-Min Delay           558 Endpoints
+Max Delay          5604 Endpoints
+Min Delay          5604 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Result[26]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        30.073ns  (logic 3.724ns (12.383%)  route 26.349ns (87.617%))
-  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=7 LUT6=11)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           0.932    21.606    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y46          LUT5 (Prop_lut5_I0_O)        0.124    21.730 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
-                         net (fo=3, routed)           0.819    22.549    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
-    SLICE_X2Y46          LUT5 (Prop_lut5_I0_O)        0.146    22.695 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
-                         net (fo=3, routed)           1.167    23.862    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.354    24.216 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
-                         net (fo=3, routed)           0.739    24.954    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.352    25.306 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
-                         net (fo=3, routed)           0.975    26.281    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
-    SLICE_X4Y41          LUT5 (Prop_lut5_I2_O)        0.354    26.635 r  inst_decode/RegisterFile/Result[26]_INST_0_i_4/O
-                         net (fo=3, routed)           1.350    27.985    execute/ALU_inst/Result[31][25]
-    SLICE_X1Y37          LUT6 (Prop_lut6_I1_O)        0.326    28.311 r  execute/ALU_inst/Result[26]_INST_0_i_3/O
-                         net (fo=1, routed)           0.665    28.976    execute/ALU_inst/Result[26]_INST_0_i_3_n_0
-    SLICE_X1Y37          LUT5 (Prop_lut5_I4_O)        0.124    29.100 r  execute/ALU_inst/Result[26]_INST_0/O
-                         net (fo=1, unset)            0.973    30.073    Result[26]
-                                                                      r  Result[26] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
                             (rising edge-triggered cell FDRE)
   Destination:            Result[25]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.932ns  (logic 3.494ns (11.673%)  route 26.438ns (88.327%))
-  Logic Levels:           20  (FDRE=1 LUT3=2 LUT5=6 LUT6=11)
+  Data Path Delay:        28.322ns  (logic 3.615ns (12.764%)  route 24.707ns (87.236%))
+  Logic Levels:           19  (FDRE=1 LUT3=2 LUT5=5 LUT6=11)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           0.932    21.606    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y46          LUT5 (Prop_lut5_I0_O)        0.124    21.730 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
-                         net (fo=3, routed)           0.819    22.549    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
-    SLICE_X2Y46          LUT5 (Prop_lut5_I0_O)        0.146    22.695 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
-                         net (fo=3, routed)           1.167    23.862    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.354    24.216 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
-                         net (fo=3, routed)           0.739    24.954    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.352    25.306 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
-                         net (fo=3, routed)           0.975    26.281    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
-    SLICE_X4Y41          LUT3 (Prop_lut3_I0_O)        0.326    26.607 r  inst_decode/RegisterFile/Result[25]_INST_0_i_4/O
-                         net (fo=3, routed)           1.439    28.046    execute/ALU_inst/Result[31][24]
-    SLICE_X7Y37          LUT6 (Prop_lut6_I0_O)        0.124    28.170 r  execute/ALU_inst/Result[25]_INST_0_i_1/O
-                         net (fo=1, routed)           0.665    28.835    execute/ALU_inst/Result[25]_INST_0_i_1_n_0
-    SLICE_X7Y37          LUT5 (Prop_lut5_I0_O)        0.124    28.959 r  execute/ALU_inst/Result[25]_INST_0/O
-                         net (fo=1, unset)            0.973    29.932    Result[25]
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 r  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           0.951    11.464    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I4_O)        0.124    11.588 r  inst_decode/RegisterFile/Result[22]_INST_0_i_100/O
+                         net (fo=3, routed)           0.658    12.246    inst_decode/RegisterFile/Result[22]_INST_0_i_100_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I0_O)        0.124    12.370 r  inst_decode/RegisterFile/Result[22]_INST_0_i_86/O
+                         net (fo=5, routed)           1.266    13.635    inst_decode/RegisterFile/Result[22]_INST_0_i_86_n_0
+    SLICE_X8Y3           LUT6 (Prop_lut6_I3_O)        0.124    13.759 r  inst_decode/RegisterFile/Result[22]_INST_0_i_70/O
+                         net (fo=4, routed)           0.974    14.733    inst_decode/RegisterFile/Result[22]_INST_0_i_70_n_0
+    SLICE_X9Y1           LUT6 (Prop_lut6_I0_O)        0.124    14.857 r  inst_decode/RegisterFile/Result[22]_INST_0_i_54/O
+                         net (fo=3, routed)           1.049    15.906    inst_decode/RegisterFile/Result[22]_INST_0_i_54_n_0
+    SLICE_X10Y2          LUT6 (Prop_lut6_I3_O)        0.124    16.030 r  inst_decode/RegisterFile/Result[20]_INST_0_i_39/O
+                         net (fo=4, routed)           0.699    16.729    inst_decode/RegisterFile/Result[20]_INST_0_i_39_n_0
+    SLICE_X12Y1          LUT6 (Prop_lut6_I0_O)        0.124    16.853 r  inst_decode/RegisterFile/Result[18]_INST_0_i_19/O
+                         net (fo=2, routed)           0.813    17.666    inst_decode/RegisterFile/Result[18]_INST_0_i_19_n_0
+    SLICE_X14Y1          LUT6 (Prop_lut6_I3_O)        0.124    17.790 r  inst_decode/RegisterFile/Result[17]_INST_0_i_21/O
+                         net (fo=3, routed)           1.033    18.823    inst_decode/RegisterFile/Result[17]_INST_0_i_21_n_0
+    SLICE_X14Y3          LUT6 (Prop_lut6_I5_O)        0.124    18.947 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
+                         net (fo=2, routed)           1.089    20.036    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
+    SLICE_X28Y2          LUT5 (Prop_lut5_I0_O)        0.124    20.160 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
+                         net (fo=3, routed)           0.838    20.999    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
+    SLICE_X29Y2          LUT5 (Prop_lut5_I0_O)        0.152    21.151 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
+                         net (fo=3, routed)           1.028    22.178    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
+    SLICE_X30Y2          LUT5 (Prop_lut5_I0_O)        0.358    22.536 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
+                         net (fo=3, routed)           0.680    23.216    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.352    23.568 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
+                         net (fo=3, routed)           0.803    24.371    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
+    SLICE_X32Y3          LUT3 (Prop_lut3_I0_O)        0.328    24.699 r  inst_decode/RegisterFile/Result[25]_INST_0_i_4/O
+                         net (fo=3, routed)           1.366    26.065    execute/ALU_inst/Result[31][24]
+    SLICE_X41Y10         LUT6 (Prop_lut6_I0_O)        0.124    26.189 r  execute/ALU_inst/Result[25]_INST_0_i_1/O
+                         net (fo=1, routed)           1.036    27.225    execute/ALU_inst/Result[25]_INST_0_i_1_n_0
+    SLICE_X39Y11         LUT5 (Prop_lut5_I0_O)        0.124    27.349 r  execute/ALU_inst/Result[25]_INST_0/O
+                         net (fo=1, unset)            0.973    28.322    Result[25]
                                                                       r  Result[25] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Result[28]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.544ns  (logic 2.936ns (9.938%)  route 26.608ns (90.062%))
-  Logic Levels:           21  (FDRE=1 LUT3=2 LUT5=5 LUT6=13)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           1.127    21.801    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y47          LUT6 (Prop_lut6_I5_O)        0.124    21.925 f  inst_decode/RegisterFile/Result[31]_INST_0_i_49/O
-                         net (fo=1, routed)           0.818    22.744    inst_decode/RegisterFile/Result[31]_INST_0_i_49_n_0
-    SLICE_X2Y46          LUT6 (Prop_lut6_I1_O)        0.124    22.868 r  inst_decode/RegisterFile/Result[31]_INST_0_i_45/O
-                         net (fo=2, routed)           0.721    23.589    inst_decode/RegisterFile/Result[31]_INST_0_i_45_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.124    23.713 r  inst_decode/RegisterFile/Result[30]_INST_0_i_21/O
-                         net (fo=1, routed)           0.762    24.475    inst_decode/RegisterFile/Result[30]_INST_0_i_21_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.124    24.599 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
-                         net (fo=1, routed)           0.412    25.011    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
-    SLICE_X3Y41          LUT5 (Prop_lut5_I0_O)        0.124    25.135 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
-                         net (fo=3, routed)           0.815    25.950    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
-    SLICE_X3Y40          LUT3 (Prop_lut3_I0_O)        0.124    26.074 r  inst_decode/RegisterFile/Result[28]_INST_0_i_4/O
-                         net (fo=3, routed)           1.476    27.550    execute/ALU_inst/Result[31][27]
-    SLICE_X1Y32          LUT6 (Prop_lut6_I3_O)        0.124    27.674 r  execute/ALU_inst/Result[28]_INST_0_i_2/O
-                         net (fo=1, routed)           0.773    28.447    execute/ALU_inst/Result[28]_INST_0_i_2_n_0
-    SLICE_X1Y34          LUT5 (Prop_lut5_I2_O)        0.124    28.571 r  execute/ALU_inst/Result[28]_INST_0/O
-                         net (fo=1, unset)            0.973    29.544    Result[28]
-                                                                      r  Result[28] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Result[31]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.445ns  (logic 3.166ns (10.752%)  route 26.279ns (89.248%))
-  Logic Levels:           21  (FDRE=1 LUT3=1 LUT5=3 LUT6=16)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           1.127    21.801    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y47          LUT6 (Prop_lut6_I5_O)        0.124    21.925 f  inst_decode/RegisterFile/Result[31]_INST_0_i_49/O
-                         net (fo=1, routed)           0.818    22.744    inst_decode/RegisterFile/Result[31]_INST_0_i_49_n_0
-    SLICE_X2Y46          LUT6 (Prop_lut6_I1_O)        0.124    22.868 r  inst_decode/RegisterFile/Result[31]_INST_0_i_45/O
-                         net (fo=2, routed)           0.442    23.310    inst_decode/RegisterFile/Result[31]_INST_0_i_45_n_0
-    SLICE_X3Y43          LUT6 (Prop_lut6_I5_O)        0.124    23.434 f  inst_decode/RegisterFile/Result[31]_INST_0_i_36/O
-                         net (fo=1, routed)           0.800    24.234    inst_decode/RegisterFile/Result[31]_INST_0_i_36_n_0
-    SLICE_X3Y41          LUT6 (Prop_lut6_I1_O)        0.124    24.358 r  inst_decode/RegisterFile/Result[31]_INST_0_i_27/O
-                         net (fo=1, routed)           0.846    25.203    inst_decode/RegisterFile/Result[31]_INST_0_i_27_n_0
-    SLICE_X3Y41          LUT5 (Prop_lut5_I0_O)        0.152    25.355 r  inst_decode/RegisterFile/Result[31]_INST_0_i_18/O
-                         net (fo=1, routed)           0.578    25.933    inst_decode/RegisterFile/Result[31]_INST_0_i_18_n_0
-    SLICE_X3Y40          LUT6 (Prop_lut6_I5_O)        0.326    26.259 r  inst_decode/RegisterFile/Result[31]_INST_0_i_6/O
-                         net (fo=3, routed)           1.309    27.568    execute/ALU_inst/Result[31][30]
-    SLICE_X5Y36          LUT6 (Prop_lut6_I3_O)        0.124    27.692 r  execute/ALU_inst/Result[31]_INST_0_i_3/O
-                         net (fo=1, routed)           0.656    28.348    execute/ALU_inst/Result[31]_INST_0_i_3_n_0
-    SLICE_X4Y36          LUT5 (Prop_lut5_I2_O)        0.124    28.472 r  execute/ALU_inst/Result[31]_INST_0/O
-                         net (fo=1, unset)            0.973    29.445    Result[31]
-                                                                      r  Result[31] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ALUResult_int_reg_reg[26]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.100ns  (logic 3.724ns (12.797%)  route 25.376ns (87.203%))
-  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=7 LUT6=11)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           0.932    21.606    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y46          LUT5 (Prop_lut5_I0_O)        0.124    21.730 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
-                         net (fo=3, routed)           0.819    22.549    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
-    SLICE_X2Y46          LUT5 (Prop_lut5_I0_O)        0.146    22.695 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
-                         net (fo=3, routed)           1.167    23.862    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.354    24.216 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
-                         net (fo=3, routed)           0.739    24.954    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.352    25.306 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
-                         net (fo=3, routed)           0.975    26.281    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
-    SLICE_X4Y41          LUT5 (Prop_lut5_I2_O)        0.354    26.635 r  inst_decode/RegisterFile/Result[26]_INST_0_i_4/O
-                         net (fo=3, routed)           1.350    27.985    execute/ALU_inst/Result[31][25]
-    SLICE_X1Y37          LUT6 (Prop_lut6_I1_O)        0.326    28.311 r  execute/ALU_inst/Result[26]_INST_0_i_3/O
-                         net (fo=1, routed)           0.665    28.976    execute/ALU_inst/Result[26]_INST_0_i_3_n_0
-    SLICE_X1Y37          LUT5 (Prop_lut5_I4_O)        0.124    29.100 r  execute/ALU_inst/Result[26]_INST_0/O
-                         net (fo=1, routed)           0.000    29.100    Result[26]
-    SLICE_X1Y37          FDRE                                         r  ALUResult_int_reg_reg[26]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Result[27]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.050ns  (logic 3.494ns (12.028%)  route 25.556ns (87.972%))
-  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=6 LUT6=12)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           0.932    21.606    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y46          LUT5 (Prop_lut5_I0_O)        0.124    21.730 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
-                         net (fo=3, routed)           0.819    22.549    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
-    SLICE_X2Y46          LUT5 (Prop_lut5_I0_O)        0.146    22.695 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
-                         net (fo=3, routed)           1.167    23.862    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.354    24.216 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
-                         net (fo=3, routed)           0.739    24.954    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.352    25.306 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
-                         net (fo=3, routed)           0.306    25.612    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
-    SLICE_X3Y41          LUT6 (Prop_lut6_I4_O)        0.326    25.938 r  inst_decode/RegisterFile/Result[27]_INST_0_i_4/O
-                         net (fo=3, routed)           1.226    27.164    execute/ALU_inst/Result[31][26]
-    SLICE_X3Y36          LUT6 (Prop_lut6_I1_O)        0.124    27.288 r  execute/ALU_inst/Result[27]_INST_0_i_3/O
-                         net (fo=1, routed)           0.665    27.953    execute/ALU_inst/Result[27]_INST_0_i_3_n_0
-    SLICE_X3Y36          LUT5 (Prop_lut5_I4_O)        0.124    28.077 r  execute/ALU_inst/Result[27]_INST_0/O
-                         net (fo=1, unset)            0.973    29.050    Result[27]
-                                                                      r  Result[27] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
                             (rising edge-triggered cell FDRE)
   Destination:            Result[29]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        29.031ns  (logic 3.166ns (10.906%)  route 25.865ns (89.094%))
-  Logic Levels:           21  (FDRE=1 LUT3=1 LUT5=6 LUT6=13)
+  Data Path Delay:        28.168ns  (logic 3.492ns (12.397%)  route 24.676ns (87.603%))
+  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=7 LUT6=11)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           1.127    21.801    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y47          LUT6 (Prop_lut6_I5_O)        0.124    21.925 f  inst_decode/RegisterFile/Result[31]_INST_0_i_49/O
-                         net (fo=1, routed)           0.818    22.744    inst_decode/RegisterFile/Result[31]_INST_0_i_49_n_0
-    SLICE_X2Y46          LUT6 (Prop_lut6_I1_O)        0.124    22.868 r  inst_decode/RegisterFile/Result[31]_INST_0_i_45/O
-                         net (fo=2, routed)           0.721    23.589    inst_decode/RegisterFile/Result[31]_INST_0_i_45_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.124    23.713 r  inst_decode/RegisterFile/Result[30]_INST_0_i_21/O
-                         net (fo=1, routed)           0.762    24.475    inst_decode/RegisterFile/Result[30]_INST_0_i_21_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.124    24.599 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
-                         net (fo=1, routed)           0.412    25.011    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
-    SLICE_X3Y41          LUT5 (Prop_lut5_I0_O)        0.124    25.135 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
-                         net (fo=3, routed)           0.815    25.950    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
-    SLICE_X3Y40          LUT5 (Prop_lut5_I2_O)        0.152    26.102 r  inst_decode/RegisterFile/Result[29]_INST_0_i_4/O
-                         net (fo=3, routed)           1.062    27.164    execute/ALU_inst/Result[31][28]
-    SLICE_X0Y33          LUT6 (Prop_lut6_I3_O)        0.326    27.490 r  execute/ALU_inst/Result[29]_INST_0_i_2/O
-                         net (fo=1, routed)           0.444    27.934    execute/ALU_inst/Result[29]_INST_0_i_2_n_0
-    SLICE_X0Y33          LUT5 (Prop_lut5_I2_O)        0.124    28.058 r  execute/ALU_inst/Result[29]_INST_0/O
-                         net (fo=1, unset)            0.973    29.031    Result[29]
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 f  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           1.314    11.826    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I1_O)        0.124    11.950 r  inst_decode/RegisterFile/Result[22]_INST_0_i_97/O
+                         net (fo=3, routed)           1.058    13.008    inst_decode/RegisterFile/Result[22]_INST_0_i_97_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I4_O)        0.124    13.132 r  inst_decode/RegisterFile/Result[22]_INST_0_i_81/O
+                         net (fo=3, routed)           0.304    13.436    inst_decode/RegisterFile/Result[22]_INST_0_i_81_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I0_O)        0.124    13.560 r  inst_decode/RegisterFile/Result[22]_INST_0_i_68/O
+                         net (fo=3, routed)           0.838    14.398    inst_decode/RegisterFile/Result[22]_INST_0_i_68_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I0_O)        0.124    14.522 r  inst_decode/RegisterFile/Result[22]_INST_0_i_58/O
+                         net (fo=4, routed)           1.363    15.885    inst_decode/RegisterFile/Result[22]_INST_0_i_58_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    16.009 r  inst_decode/RegisterFile/Result[22]_INST_0_i_47/O
+                         net (fo=2, routed)           0.968    16.977    inst_decode/RegisterFile/Result[22]_INST_0_i_47_n_0
+    SLICE_X12Y3          LUT6 (Prop_lut6_I1_O)        0.124    17.101 r  inst_decode/RegisterFile/Result[20]_INST_0_i_34/O
+                         net (fo=3, routed)           0.831    17.932    inst_decode/RegisterFile/Result[20]_INST_0_i_34_n_0
+    SLICE_X13Y2          LUT5 (Prop_lut5_I0_O)        0.124    18.056 r  inst_decode/RegisterFile/Result[22]_INST_0_i_31/O
+                         net (fo=2, routed)           0.940    18.996    inst_decode/RegisterFile/Result[22]_INST_0_i_31_n_0
+    SLICE_X28Y4          LUT5 (Prop_lut5_I4_O)        0.124    19.120 r  inst_decode/RegisterFile/Result[22]_INST_0_i_23/O
+                         net (fo=2, routed)           1.164    20.283    inst_decode/RegisterFile/Result[22]_INST_0_i_23_n_0
+    SLICE_X28Y1          LUT6 (Prop_lut6_I4_O)        0.124    20.407 r  inst_decode/RegisterFile/Result[22]_INST_0_i_13/O
+                         net (fo=4, routed)           0.811    21.218    inst_decode/RegisterFile/Result[22]_INST_0_i_13_n_0
+    SLICE_X28Y2          LUT6 (Prop_lut6_I5_O)        0.124    21.342 r  inst_decode/RegisterFile/Result[31]_INST_0_i_37/O
+                         net (fo=2, routed)           0.967    22.308    inst_decode/RegisterFile/Result[31]_INST_0_i_37_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.124    22.432 r  inst_decode/RegisterFile/Result[30]_INST_0_i_22/O
+                         net (fo=1, routed)           0.494    22.926    inst_decode/RegisterFile/Result[30]_INST_0_i_22_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.117    23.043 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
+                         net (fo=1, routed)           0.570    23.614    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I0_O)        0.348    23.962 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
+                         net (fo=3, routed)           0.839    24.801    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
+    SLICE_X35Y4          LUT5 (Prop_lut5_I2_O)        0.152    24.953 r  inst_decode/RegisterFile/Result[29]_INST_0_i_4/O
+                         net (fo=3, routed)           1.153    26.106    execute/ALU_inst/Result[31][28]
+    SLICE_X38Y10         LUT6 (Prop_lut6_I1_O)        0.326    26.432 r  execute/ALU_inst/Result[29]_INST_0_i_3/O
+                         net (fo=1, routed)           0.639    27.071    execute/ALU_inst/Result[29]_INST_0_i_3_n_0
+    SLICE_X36Y10         LUT5 (Prop_lut5_I4_O)        0.124    27.195 r  execute/ALU_inst/Result[29]_INST_0/O
+                         net (fo=1, unset)            0.973    28.168    Result[29]
                                                                       r  Result[29] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResult_int_reg_reg[25]/D
+  Destination:            Result[28]
+                            (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        28.959ns  (logic 3.494ns (12.065%)  route 25.465ns (87.935%))
+  Data Path Delay:        27.861ns  (logic 3.262ns (11.708%)  route 24.599ns (88.292%))
   Logic Levels:           20  (FDRE=1 LUT3=2 LUT5=6 LUT6=11)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           0.932    21.606    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y46          LUT5 (Prop_lut5_I0_O)        0.124    21.730 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
-                         net (fo=3, routed)           0.819    22.549    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
-    SLICE_X2Y46          LUT5 (Prop_lut5_I0_O)        0.146    22.695 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
-                         net (fo=3, routed)           1.167    23.862    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.354    24.216 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
-                         net (fo=3, routed)           0.739    24.954    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.352    25.306 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
-                         net (fo=3, routed)           0.975    26.281    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
-    SLICE_X4Y41          LUT3 (Prop_lut3_I0_O)        0.326    26.607 r  inst_decode/RegisterFile/Result[25]_INST_0_i_4/O
-                         net (fo=3, routed)           1.439    28.046    execute/ALU_inst/Result[31][24]
-    SLICE_X7Y37          LUT6 (Prop_lut6_I0_O)        0.124    28.170 r  execute/ALU_inst/Result[25]_INST_0_i_1/O
-                         net (fo=1, routed)           0.665    28.835    execute/ALU_inst/Result[25]_INST_0_i_1_n_0
-    SLICE_X7Y37          LUT5 (Prop_lut5_I0_O)        0.124    28.959 r  execute/ALU_inst/Result[25]_INST_0/O
-                         net (fo=1, routed)           0.000    28.959    Result[25]
-    SLICE_X7Y37          FDRE                                         r  ALUResult_int_reg_reg[25]/D
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 f  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           1.314    11.826    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I1_O)        0.124    11.950 r  inst_decode/RegisterFile/Result[22]_INST_0_i_97/O
+                         net (fo=3, routed)           1.058    13.008    inst_decode/RegisterFile/Result[22]_INST_0_i_97_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I4_O)        0.124    13.132 r  inst_decode/RegisterFile/Result[22]_INST_0_i_81/O
+                         net (fo=3, routed)           0.304    13.436    inst_decode/RegisterFile/Result[22]_INST_0_i_81_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I0_O)        0.124    13.560 r  inst_decode/RegisterFile/Result[22]_INST_0_i_68/O
+                         net (fo=3, routed)           0.838    14.398    inst_decode/RegisterFile/Result[22]_INST_0_i_68_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I0_O)        0.124    14.522 r  inst_decode/RegisterFile/Result[22]_INST_0_i_58/O
+                         net (fo=4, routed)           1.363    15.885    inst_decode/RegisterFile/Result[22]_INST_0_i_58_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    16.009 r  inst_decode/RegisterFile/Result[22]_INST_0_i_47/O
+                         net (fo=2, routed)           0.968    16.977    inst_decode/RegisterFile/Result[22]_INST_0_i_47_n_0
+    SLICE_X12Y3          LUT6 (Prop_lut6_I1_O)        0.124    17.101 r  inst_decode/RegisterFile/Result[20]_INST_0_i_34/O
+                         net (fo=3, routed)           0.831    17.932    inst_decode/RegisterFile/Result[20]_INST_0_i_34_n_0
+    SLICE_X13Y2          LUT5 (Prop_lut5_I0_O)        0.124    18.056 r  inst_decode/RegisterFile/Result[22]_INST_0_i_31/O
+                         net (fo=2, routed)           0.940    18.996    inst_decode/RegisterFile/Result[22]_INST_0_i_31_n_0
+    SLICE_X28Y4          LUT5 (Prop_lut5_I4_O)        0.124    19.120 r  inst_decode/RegisterFile/Result[22]_INST_0_i_23/O
+                         net (fo=2, routed)           1.164    20.283    inst_decode/RegisterFile/Result[22]_INST_0_i_23_n_0
+    SLICE_X28Y1          LUT6 (Prop_lut6_I4_O)        0.124    20.407 r  inst_decode/RegisterFile/Result[22]_INST_0_i_13/O
+                         net (fo=4, routed)           0.811    21.218    inst_decode/RegisterFile/Result[22]_INST_0_i_13_n_0
+    SLICE_X28Y2          LUT6 (Prop_lut6_I5_O)        0.124    21.342 r  inst_decode/RegisterFile/Result[31]_INST_0_i_37/O
+                         net (fo=2, routed)           0.967    22.308    inst_decode/RegisterFile/Result[31]_INST_0_i_37_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.124    22.432 r  inst_decode/RegisterFile/Result[30]_INST_0_i_22/O
+                         net (fo=1, routed)           0.494    22.926    inst_decode/RegisterFile/Result[30]_INST_0_i_22_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.117    23.043 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
+                         net (fo=1, routed)           0.570    23.614    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I0_O)        0.348    23.962 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
+                         net (fo=3, routed)           0.839    24.801    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
+    SLICE_X35Y4          LUT3 (Prop_lut3_I0_O)        0.124    24.925 r  inst_decode/RegisterFile/Result[28]_INST_0_i_4/O
+                         net (fo=3, routed)           0.985    25.911    execute/ALU_inst/Result[31][27]
+    SLICE_X39Y8          LUT6 (Prop_lut6_I0_O)        0.124    26.035 r  execute/ALU_inst/Result[28]_INST_0_i_1/O
+                         net (fo=1, routed)           0.729    26.764    execute/ALU_inst/Result[28]_INST_0_i_1_n_0
+    SLICE_X38Y8          LUT5 (Prop_lut5_I0_O)        0.124    26.888 r  execute/ALU_inst/Result[28]_INST_0/O
+                         net (fo=1, unset)            0.973    27.861    Result[28]
+                                                                      r  Result[28] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
                             (rising edge-triggered cell FDRE)
   Destination:            Result[30]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        28.951ns  (logic 2.936ns (10.141%)  route 26.015ns (89.859%))
-  Logic Levels:           21  (FDRE=1 LUT3=1 LUT5=5 LUT6=14)
+  Data Path Delay:        27.832ns  (logic 3.262ns (11.720%)  route 24.570ns (88.280%))
+  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=6 LUT6=12)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           1.127    21.801    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y47          LUT6 (Prop_lut6_I5_O)        0.124    21.925 f  inst_decode/RegisterFile/Result[31]_INST_0_i_49/O
-                         net (fo=1, routed)           0.818    22.744    inst_decode/RegisterFile/Result[31]_INST_0_i_49_n_0
-    SLICE_X2Y46          LUT6 (Prop_lut6_I1_O)        0.124    22.868 r  inst_decode/RegisterFile/Result[31]_INST_0_i_45/O
-                         net (fo=2, routed)           0.721    23.589    inst_decode/RegisterFile/Result[31]_INST_0_i_45_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.124    23.713 r  inst_decode/RegisterFile/Result[30]_INST_0_i_21/O
-                         net (fo=1, routed)           0.762    24.475    inst_decode/RegisterFile/Result[30]_INST_0_i_21_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.124    24.599 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
-                         net (fo=1, routed)           0.412    25.011    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
-    SLICE_X3Y41          LUT5 (Prop_lut5_I0_O)        0.124    25.135 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
-                         net (fo=3, routed)           0.413    25.548    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
-    SLICE_X3Y40          LUT6 (Prop_lut6_I2_O)        0.124    25.672 r  inst_decode/RegisterFile/Result[30]_INST_0_i_4/O
-                         net (fo=3, routed)           1.269    26.940    execute/ALU_inst/Result[31][29]
-    SLICE_X0Y31          LUT6 (Prop_lut6_I3_O)        0.124    27.064 r  execute/ALU_inst/Result[30]_INST_0_i_2/O
-                         net (fo=1, routed)           0.789    27.854    execute/ALU_inst/Result[30]_INST_0_i_2_n_0
-    SLICE_X0Y34          LUT5 (Prop_lut5_I2_O)        0.124    27.978 r  execute/ALU_inst/Result[30]_INST_0/O
-                         net (fo=1, unset)            0.973    28.951    Result[30]
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 f  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           1.314    11.826    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I1_O)        0.124    11.950 r  inst_decode/RegisterFile/Result[22]_INST_0_i_97/O
+                         net (fo=3, routed)           1.058    13.008    inst_decode/RegisterFile/Result[22]_INST_0_i_97_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I4_O)        0.124    13.132 r  inst_decode/RegisterFile/Result[22]_INST_0_i_81/O
+                         net (fo=3, routed)           0.304    13.436    inst_decode/RegisterFile/Result[22]_INST_0_i_81_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I0_O)        0.124    13.560 r  inst_decode/RegisterFile/Result[22]_INST_0_i_68/O
+                         net (fo=3, routed)           0.838    14.398    inst_decode/RegisterFile/Result[22]_INST_0_i_68_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I0_O)        0.124    14.522 r  inst_decode/RegisterFile/Result[22]_INST_0_i_58/O
+                         net (fo=4, routed)           1.363    15.885    inst_decode/RegisterFile/Result[22]_INST_0_i_58_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    16.009 r  inst_decode/RegisterFile/Result[22]_INST_0_i_47/O
+                         net (fo=2, routed)           0.968    16.977    inst_decode/RegisterFile/Result[22]_INST_0_i_47_n_0
+    SLICE_X12Y3          LUT6 (Prop_lut6_I1_O)        0.124    17.101 r  inst_decode/RegisterFile/Result[20]_INST_0_i_34/O
+                         net (fo=3, routed)           0.831    17.932    inst_decode/RegisterFile/Result[20]_INST_0_i_34_n_0
+    SLICE_X13Y2          LUT5 (Prop_lut5_I0_O)        0.124    18.056 r  inst_decode/RegisterFile/Result[22]_INST_0_i_31/O
+                         net (fo=2, routed)           0.940    18.996    inst_decode/RegisterFile/Result[22]_INST_0_i_31_n_0
+    SLICE_X28Y4          LUT5 (Prop_lut5_I4_O)        0.124    19.120 r  inst_decode/RegisterFile/Result[22]_INST_0_i_23/O
+                         net (fo=2, routed)           1.164    20.283    inst_decode/RegisterFile/Result[22]_INST_0_i_23_n_0
+    SLICE_X28Y1          LUT6 (Prop_lut6_I4_O)        0.124    20.407 r  inst_decode/RegisterFile/Result[22]_INST_0_i_13/O
+                         net (fo=4, routed)           0.811    21.218    inst_decode/RegisterFile/Result[22]_INST_0_i_13_n_0
+    SLICE_X28Y2          LUT6 (Prop_lut6_I5_O)        0.124    21.342 r  inst_decode/RegisterFile/Result[31]_INST_0_i_37/O
+                         net (fo=2, routed)           0.967    22.308    inst_decode/RegisterFile/Result[31]_INST_0_i_37_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.124    22.432 r  inst_decode/RegisterFile/Result[30]_INST_0_i_22/O
+                         net (fo=1, routed)           0.494    22.926    inst_decode/RegisterFile/Result[30]_INST_0_i_22_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.117    23.043 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
+                         net (fo=1, routed)           0.570    23.614    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I0_O)        0.348    23.962 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
+                         net (fo=3, routed)           0.674    24.636    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
+    SLICE_X35Y4          LUT6 (Prop_lut6_I2_O)        0.124    24.760 r  inst_decode/RegisterFile/Result[30]_INST_0_i_4/O
+                         net (fo=3, routed)           1.171    25.931    execute/ALU_inst/Result[31][29]
+    SLICE_X38Y14         LUT6 (Prop_lut6_I1_O)        0.124    26.055 r  execute/ALU_inst/Result[30]_INST_0_i_3/O
+                         net (fo=1, routed)           0.680    26.735    execute/ALU_inst/Result[30]_INST_0_i_3_n_0
+    SLICE_X38Y14         LUT5 (Prop_lut5_I4_O)        0.124    26.859 r  execute/ALU_inst/Result[30]_INST_0/O
+                         net (fo=1, unset)            0.973    27.832    Result[30]
                                                                       r  Result[30] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 instruction_int_reg_reg[28]/C
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            Result[26]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        27.823ns  (logic 3.845ns (13.820%)  route 23.978ns (86.180%))
+  Logic Levels:           19  (FDRE=1 LUT3=1 LUT5=6 LUT6=11)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 r  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           0.951    11.464    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I4_O)        0.124    11.588 r  inst_decode/RegisterFile/Result[22]_INST_0_i_100/O
+                         net (fo=3, routed)           0.658    12.246    inst_decode/RegisterFile/Result[22]_INST_0_i_100_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I0_O)        0.124    12.370 r  inst_decode/RegisterFile/Result[22]_INST_0_i_86/O
+                         net (fo=5, routed)           1.266    13.635    inst_decode/RegisterFile/Result[22]_INST_0_i_86_n_0
+    SLICE_X8Y3           LUT6 (Prop_lut6_I3_O)        0.124    13.759 r  inst_decode/RegisterFile/Result[22]_INST_0_i_70/O
+                         net (fo=4, routed)           0.974    14.733    inst_decode/RegisterFile/Result[22]_INST_0_i_70_n_0
+    SLICE_X9Y1           LUT6 (Prop_lut6_I0_O)        0.124    14.857 r  inst_decode/RegisterFile/Result[22]_INST_0_i_54/O
+                         net (fo=3, routed)           1.049    15.906    inst_decode/RegisterFile/Result[22]_INST_0_i_54_n_0
+    SLICE_X10Y2          LUT6 (Prop_lut6_I3_O)        0.124    16.030 r  inst_decode/RegisterFile/Result[20]_INST_0_i_39/O
+                         net (fo=4, routed)           0.699    16.729    inst_decode/RegisterFile/Result[20]_INST_0_i_39_n_0
+    SLICE_X12Y1          LUT6 (Prop_lut6_I0_O)        0.124    16.853 r  inst_decode/RegisterFile/Result[18]_INST_0_i_19/O
+                         net (fo=2, routed)           0.813    17.666    inst_decode/RegisterFile/Result[18]_INST_0_i_19_n_0
+    SLICE_X14Y1          LUT6 (Prop_lut6_I3_O)        0.124    17.790 r  inst_decode/RegisterFile/Result[17]_INST_0_i_21/O
+                         net (fo=3, routed)           1.033    18.823    inst_decode/RegisterFile/Result[17]_INST_0_i_21_n_0
+    SLICE_X14Y3          LUT6 (Prop_lut6_I5_O)        0.124    18.947 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
+                         net (fo=2, routed)           1.089    20.036    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
+    SLICE_X28Y2          LUT5 (Prop_lut5_I0_O)        0.124    20.160 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
+                         net (fo=3, routed)           0.838    20.999    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
+    SLICE_X29Y2          LUT5 (Prop_lut5_I0_O)        0.152    21.151 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
+                         net (fo=3, routed)           1.028    22.178    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
+    SLICE_X30Y2          LUT5 (Prop_lut5_I0_O)        0.358    22.536 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
+                         net (fo=3, routed)           0.680    23.216    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.352    23.568 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
+                         net (fo=3, routed)           0.803    24.371    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I2_O)        0.356    24.727 r  inst_decode/RegisterFile/Result[26]_INST_0_i_4/O
+                         net (fo=3, routed)           1.240    25.967    execute/ALU_inst/Result[31][25]
+    SLICE_X39Y12         LUT6 (Prop_lut6_I0_O)        0.326    26.293 r  execute/ALU_inst/Result[26]_INST_0_i_1/O
+                         net (fo=1, routed)           0.433    26.726    execute/ALU_inst/Result[26]_INST_0_i_1_n_0
+    SLICE_X39Y12         LUT5 (Prop_lut5_I0_O)        0.124    26.850 r  execute/ALU_inst/Result[26]_INST_0/O
+                         net (fo=1, unset)            0.973    27.823    Result[26]
+                                                                      r  Result[26] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            Result[31]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        27.701ns  (logic 3.511ns (12.675%)  route 24.190ns (87.325%))
+  Logic Levels:           20  (FDRE=1 LUT2=1 LUT3=1 LUT5=5 LUT6=12)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.113     8.620    inst_decode/RegisterFile/RD2[0]
+    SLICE_X1Y3           LUT6 (Prop_lut6_I1_O)        0.327     8.947 r  inst_decode/RegisterFile/Result[22]_INST_0_i_134/O
+                         net (fo=4, routed)           0.677     9.624    inst_decode/RegisterFile/Result[22]_INST_0_i_134_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I0_O)        0.124     9.748 r  inst_decode/RegisterFile/Result[22]_INST_0_i_121/O
+                         net (fo=4, routed)           1.443    11.191    inst_decode/RegisterFile/Result[22]_INST_0_i_121_n_0
+    SLICE_X5Y1           LUT6 (Prop_lut6_I0_O)        0.124    11.315 r  inst_decode/RegisterFile/Result[22]_INST_0_i_109/O
+                         net (fo=2, routed)           0.988    12.304    inst_decode/RegisterFile/Result[22]_INST_0_i_109_n_0
+    SLICE_X6Y1           LUT6 (Prop_lut6_I5_O)        0.124    12.428 r  inst_decode/RegisterFile/Result[22]_INST_0_i_87/O
+                         net (fo=5, routed)           1.444    13.871    inst_decode/RegisterFile/Result[22]_INST_0_i_87_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I2_O)        0.124    13.995 r  inst_decode/RegisterFile/Result[22]_INST_0_i_71/O
+                         net (fo=3, routed)           0.964    14.959    inst_decode/RegisterFile/Result[22]_INST_0_i_71_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    15.083 r  inst_decode/RegisterFile/Result[22]_INST_0_i_57/O
+                         net (fo=4, routed)           0.508    15.591    inst_decode/RegisterFile/Result[22]_INST_0_i_57_n_0
+    SLICE_X10Y4          LUT5 (Prop_lut5_I4_O)        0.124    15.715 f  inst_decode/RegisterFile/Result[22]_INST_0_i_44/O
+                         net (fo=1, routed)           0.795    16.510    inst_decode/RegisterFile/Result[22]_INST_0_i_44_n_0
+    SLICE_X10Y4          LUT6 (Prop_lut6_I0_O)        0.124    16.634 f  inst_decode/RegisterFile/Result[22]_INST_0_i_33/O
+                         net (fo=3, routed)           0.997    17.631    inst_decode/RegisterFile/Result[22]_INST_0_i_33_n_0
+    SLICE_X14Y4          LUT6 (Prop_lut6_I0_O)        0.124    17.755 f  inst_decode/RegisterFile/Result[22]_INST_0_i_37/O
+                         net (fo=2, routed)           0.872    18.628    inst_decode/RegisterFile/Result[22]_INST_0_i_37_n_0
+    SLICE_X15Y4          LUT5 (Prop_lut5_I0_O)        0.152    18.780 f  inst_decode/RegisterFile/Result[24]_INST_0_i_26/O
+                         net (fo=2, routed)           0.795    19.575    inst_decode/RegisterFile/Result[24]_INST_0_i_26_n_0
+    SLICE_X15Y3          LUT6 (Prop_lut6_I4_O)        0.332    19.907 r  inst_decode/RegisterFile/Result[24]_INST_0_i_21/O
+                         net (fo=3, routed)           1.235    21.142    inst_decode/RegisterFile/Result[24]_INST_0_i_21_n_0
+    SLICE_X29Y3          LUT5 (Prop_lut5_I4_O)        0.152    21.294 r  inst_decode/RegisterFile/Result[24]_INST_0_i_14/O
+                         net (fo=4, routed)           0.812    22.106    inst_decode/RegisterFile/Result[24]_INST_0_i_14_n_0
+    SLICE_X30Y3          LUT2 (Prop_lut2_I0_O)        0.326    22.432 r  inst_decode/RegisterFile/Result[31]_INST_0_i_27/O
+                         net (fo=1, routed)           0.569    23.002    inst_decode/RegisterFile/Result[31]_INST_0_i_27_n_0
+    SLICE_X32Y3          LUT6 (Prop_lut6_I0_O)        0.124    23.126 r  inst_decode/RegisterFile/Result[31]_INST_0_i_19/O
+                         net (fo=1, routed)           0.656    23.782    inst_decode/RegisterFile/Result[31]_INST_0_i_19_n_0
+    SLICE_X33Y3          LUT5 (Prop_lut5_I0_O)        0.124    23.906 r  inst_decode/RegisterFile/Result[31]_INST_0_i_12/O
+                         net (fo=1, routed)           0.614    24.520    inst_decode/RegisterFile/Result[31]_INST_0_i_12_n_0
+    SLICE_X34Y4          LUT6 (Prop_lut6_I5_O)        0.124    24.644 r  inst_decode/RegisterFile/Result[31]_INST_0_i_4/O
+                         net (fo=3, routed)           1.172    25.815    execute/ALU_inst/Result[31][30]
+    SLICE_X37Y13         LUT6 (Prop_lut6_I1_O)        0.124    25.939 r  execute/ALU_inst/Result[31]_INST_0_i_3/O
+                         net (fo=1, routed)           0.665    26.604    execute/ALU_inst/Result[31]_INST_0_i_3_n_0
+    SLICE_X37Y13         LUT5 (Prop_lut5_I4_O)        0.124    26.728 r  execute/ALU_inst/Result[31]_INST_0/O
+                         net (fo=1, unset)            0.973    27.701    Result[31]
+                                                                      r  Result[31] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            ALUResult_int_reg_reg[25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        27.349ns  (logic 3.615ns (13.218%)  route 23.734ns (86.782%))
+  Logic Levels:           19  (FDRE=1 LUT3=2 LUT5=5 LUT6=11)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 r  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           0.951    11.464    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I4_O)        0.124    11.588 r  inst_decode/RegisterFile/Result[22]_INST_0_i_100/O
+                         net (fo=3, routed)           0.658    12.246    inst_decode/RegisterFile/Result[22]_INST_0_i_100_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I0_O)        0.124    12.370 r  inst_decode/RegisterFile/Result[22]_INST_0_i_86/O
+                         net (fo=5, routed)           1.266    13.635    inst_decode/RegisterFile/Result[22]_INST_0_i_86_n_0
+    SLICE_X8Y3           LUT6 (Prop_lut6_I3_O)        0.124    13.759 r  inst_decode/RegisterFile/Result[22]_INST_0_i_70/O
+                         net (fo=4, routed)           0.974    14.733    inst_decode/RegisterFile/Result[22]_INST_0_i_70_n_0
+    SLICE_X9Y1           LUT6 (Prop_lut6_I0_O)        0.124    14.857 r  inst_decode/RegisterFile/Result[22]_INST_0_i_54/O
+                         net (fo=3, routed)           1.049    15.906    inst_decode/RegisterFile/Result[22]_INST_0_i_54_n_0
+    SLICE_X10Y2          LUT6 (Prop_lut6_I3_O)        0.124    16.030 r  inst_decode/RegisterFile/Result[20]_INST_0_i_39/O
+                         net (fo=4, routed)           0.699    16.729    inst_decode/RegisterFile/Result[20]_INST_0_i_39_n_0
+    SLICE_X12Y1          LUT6 (Prop_lut6_I0_O)        0.124    16.853 r  inst_decode/RegisterFile/Result[18]_INST_0_i_19/O
+                         net (fo=2, routed)           0.813    17.666    inst_decode/RegisterFile/Result[18]_INST_0_i_19_n_0
+    SLICE_X14Y1          LUT6 (Prop_lut6_I3_O)        0.124    17.790 r  inst_decode/RegisterFile/Result[17]_INST_0_i_21/O
+                         net (fo=3, routed)           1.033    18.823    inst_decode/RegisterFile/Result[17]_INST_0_i_21_n_0
+    SLICE_X14Y3          LUT6 (Prop_lut6_I5_O)        0.124    18.947 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
+                         net (fo=2, routed)           1.089    20.036    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
+    SLICE_X28Y2          LUT5 (Prop_lut5_I0_O)        0.124    20.160 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
+                         net (fo=3, routed)           0.838    20.999    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
+    SLICE_X29Y2          LUT5 (Prop_lut5_I0_O)        0.152    21.151 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
+                         net (fo=3, routed)           1.028    22.178    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
+    SLICE_X30Y2          LUT5 (Prop_lut5_I0_O)        0.358    22.536 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
+                         net (fo=3, routed)           0.680    23.216    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.352    23.568 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
+                         net (fo=3, routed)           0.803    24.371    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
+    SLICE_X32Y3          LUT3 (Prop_lut3_I0_O)        0.328    24.699 r  inst_decode/RegisterFile/Result[25]_INST_0_i_4/O
+                         net (fo=3, routed)           1.366    26.065    execute/ALU_inst/Result[31][24]
+    SLICE_X41Y10         LUT6 (Prop_lut6_I0_O)        0.124    26.189 r  execute/ALU_inst/Result[25]_INST_0_i_1/O
+                         net (fo=1, routed)           1.036    27.225    execute/ALU_inst/Result[25]_INST_0_i_1_n_0
+    SLICE_X39Y11         LUT5 (Prop_lut5_I0_O)        0.124    27.349 r  execute/ALU_inst/Result[25]_INST_0/O
+                         net (fo=1, routed)           0.000    27.349    Result[25]
+    SLICE_X39Y11         FDRE                                         r  ALUResult_int_reg_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            Result[27]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        27.322ns  (logic 3.615ns (13.231%)  route 23.707ns (86.769%))
+  Logic Levels:           19  (FDRE=1 LUT3=1 LUT5=5 LUT6=12)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 r  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           0.951    11.464    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I4_O)        0.124    11.588 r  inst_decode/RegisterFile/Result[22]_INST_0_i_100/O
+                         net (fo=3, routed)           0.658    12.246    inst_decode/RegisterFile/Result[22]_INST_0_i_100_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I0_O)        0.124    12.370 r  inst_decode/RegisterFile/Result[22]_INST_0_i_86/O
+                         net (fo=5, routed)           1.266    13.635    inst_decode/RegisterFile/Result[22]_INST_0_i_86_n_0
+    SLICE_X8Y3           LUT6 (Prop_lut6_I3_O)        0.124    13.759 r  inst_decode/RegisterFile/Result[22]_INST_0_i_70/O
+                         net (fo=4, routed)           0.974    14.733    inst_decode/RegisterFile/Result[22]_INST_0_i_70_n_0
+    SLICE_X9Y1           LUT6 (Prop_lut6_I0_O)        0.124    14.857 r  inst_decode/RegisterFile/Result[22]_INST_0_i_54/O
+                         net (fo=3, routed)           1.049    15.906    inst_decode/RegisterFile/Result[22]_INST_0_i_54_n_0
+    SLICE_X10Y2          LUT6 (Prop_lut6_I3_O)        0.124    16.030 r  inst_decode/RegisterFile/Result[20]_INST_0_i_39/O
+                         net (fo=4, routed)           0.699    16.729    inst_decode/RegisterFile/Result[20]_INST_0_i_39_n_0
+    SLICE_X12Y1          LUT6 (Prop_lut6_I0_O)        0.124    16.853 r  inst_decode/RegisterFile/Result[18]_INST_0_i_19/O
+                         net (fo=2, routed)           0.813    17.666    inst_decode/RegisterFile/Result[18]_INST_0_i_19_n_0
+    SLICE_X14Y1          LUT6 (Prop_lut6_I3_O)        0.124    17.790 r  inst_decode/RegisterFile/Result[17]_INST_0_i_21/O
+                         net (fo=3, routed)           1.033    18.823    inst_decode/RegisterFile/Result[17]_INST_0_i_21_n_0
+    SLICE_X14Y3          LUT6 (Prop_lut6_I5_O)        0.124    18.947 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
+                         net (fo=2, routed)           1.089    20.036    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
+    SLICE_X28Y2          LUT5 (Prop_lut5_I0_O)        0.124    20.160 r  inst_decode/RegisterFile/Result[20]_INST_0_i_10/O
+                         net (fo=3, routed)           0.838    20.999    inst_decode/RegisterFile/Result[20]_INST_0_i_10_n_0
+    SLICE_X29Y2          LUT5 (Prop_lut5_I0_O)        0.152    21.151 r  inst_decode/RegisterFile/Result[22]_INST_0_i_11/O
+                         net (fo=3, routed)           1.028    22.178    inst_decode/RegisterFile/Result[22]_INST_0_i_11_n_0
+    SLICE_X30Y2          LUT5 (Prop_lut5_I0_O)        0.358    22.536 r  inst_decode/RegisterFile/Result[24]_INST_0_i_12/O
+                         net (fo=3, routed)           0.680    23.216    inst_decode/RegisterFile/Result[24]_INST_0_i_12_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.352    23.568 r  inst_decode/RegisterFile/Result[27]_INST_0_i_15/O
+                         net (fo=3, routed)           0.805    24.374    inst_decode/RegisterFile/Result[27]_INST_0_i_15_n_0
+    SLICE_X32Y3          LUT6 (Prop_lut6_I4_O)        0.328    24.702 r  inst_decode/RegisterFile/Result[27]_INST_0_i_4/O
+                         net (fo=3, routed)           0.984    25.686    execute/ALU_inst/Result[31][26]
+    SLICE_X38Y5          LUT6 (Prop_lut6_I3_O)        0.124    25.810 r  execute/ALU_inst/Result[27]_INST_0_i_2/O
+                         net (fo=1, routed)           0.415    26.225    execute/ALU_inst/Result[27]_INST_0_i_2_n_0
+    SLICE_X38Y6          LUT5 (Prop_lut5_I2_O)        0.124    26.349 r  execute/ALU_inst/Result[27]_INST_0/O
+                         net (fo=1, unset)            0.973    27.322    Result[27]
+                                                                      r  Result[27] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            ALUResult_int_reg_reg[29]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        27.195ns  (logic 3.492ns (12.841%)  route 23.703ns (87.159%))
+  Logic Levels:           20  (FDRE=1 LUT3=1 LUT5=7 LUT6=11)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 f  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           1.314    11.826    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I1_O)        0.124    11.950 r  inst_decode/RegisterFile/Result[22]_INST_0_i_97/O
+                         net (fo=3, routed)           1.058    13.008    inst_decode/RegisterFile/Result[22]_INST_0_i_97_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I4_O)        0.124    13.132 r  inst_decode/RegisterFile/Result[22]_INST_0_i_81/O
+                         net (fo=3, routed)           0.304    13.436    inst_decode/RegisterFile/Result[22]_INST_0_i_81_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I0_O)        0.124    13.560 r  inst_decode/RegisterFile/Result[22]_INST_0_i_68/O
+                         net (fo=3, routed)           0.838    14.398    inst_decode/RegisterFile/Result[22]_INST_0_i_68_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I0_O)        0.124    14.522 r  inst_decode/RegisterFile/Result[22]_INST_0_i_58/O
+                         net (fo=4, routed)           1.363    15.885    inst_decode/RegisterFile/Result[22]_INST_0_i_58_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    16.009 r  inst_decode/RegisterFile/Result[22]_INST_0_i_47/O
+                         net (fo=2, routed)           0.968    16.977    inst_decode/RegisterFile/Result[22]_INST_0_i_47_n_0
+    SLICE_X12Y3          LUT6 (Prop_lut6_I1_O)        0.124    17.101 r  inst_decode/RegisterFile/Result[20]_INST_0_i_34/O
+                         net (fo=3, routed)           0.831    17.932    inst_decode/RegisterFile/Result[20]_INST_0_i_34_n_0
+    SLICE_X13Y2          LUT5 (Prop_lut5_I0_O)        0.124    18.056 r  inst_decode/RegisterFile/Result[22]_INST_0_i_31/O
+                         net (fo=2, routed)           0.940    18.996    inst_decode/RegisterFile/Result[22]_INST_0_i_31_n_0
+    SLICE_X28Y4          LUT5 (Prop_lut5_I4_O)        0.124    19.120 r  inst_decode/RegisterFile/Result[22]_INST_0_i_23/O
+                         net (fo=2, routed)           1.164    20.283    inst_decode/RegisterFile/Result[22]_INST_0_i_23_n_0
+    SLICE_X28Y1          LUT6 (Prop_lut6_I4_O)        0.124    20.407 r  inst_decode/RegisterFile/Result[22]_INST_0_i_13/O
+                         net (fo=4, routed)           0.811    21.218    inst_decode/RegisterFile/Result[22]_INST_0_i_13_n_0
+    SLICE_X28Y2          LUT6 (Prop_lut6_I5_O)        0.124    21.342 r  inst_decode/RegisterFile/Result[31]_INST_0_i_37/O
+                         net (fo=2, routed)           0.967    22.308    inst_decode/RegisterFile/Result[31]_INST_0_i_37_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.124    22.432 r  inst_decode/RegisterFile/Result[30]_INST_0_i_22/O
+                         net (fo=1, routed)           0.494    22.926    inst_decode/RegisterFile/Result[30]_INST_0_i_22_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.117    23.043 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
+                         net (fo=1, routed)           0.570    23.614    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I0_O)        0.348    23.962 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
+                         net (fo=3, routed)           0.839    24.801    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
+    SLICE_X35Y4          LUT5 (Prop_lut5_I2_O)        0.152    24.953 r  inst_decode/RegisterFile/Result[29]_INST_0_i_4/O
+                         net (fo=3, routed)           1.153    26.106    execute/ALU_inst/Result[31][28]
+    SLICE_X38Y10         LUT6 (Prop_lut6_I1_O)        0.326    26.432 r  execute/ALU_inst/Result[29]_INST_0_i_3/O
+                         net (fo=1, routed)           0.639    27.071    execute/ALU_inst/Result[29]_INST_0_i_3_n_0
+    SLICE_X36Y10         LUT5 (Prop_lut5_I4_O)        0.124    27.195 r  execute/ALU_inst/Result[29]_INST_0/O
+                         net (fo=1, routed)           0.000    27.195    Result[29]
+    SLICE_X36Y10         FDRE                                         r  ALUResult_int_reg_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALUSrc_int_reg_reg_rep__1/C
                             (rising edge-triggered cell FDRE)
   Destination:            ALUResult_int_reg_reg[28]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        28.571ns  (logic 2.936ns (10.276%)  route 25.635ns (89.724%))
-  Logic Levels:           21  (FDRE=1 LUT3=2 LUT5=5 LUT6=13)
+  Data Path Delay:        26.888ns  (logic 3.262ns (12.132%)  route 23.626ns (87.868%))
+  Logic Levels:           20  (FDRE=1 LUT3=2 LUT5=6 LUT6=11)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y45          FDRE                         0.000     0.000 r  instruction_int_reg_reg[28]/C
-    SLICE_X3Y45          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  instruction_int_reg_reg[28]/Q
-                         net (fo=573, routed)         5.790     6.246    inst_decode/RegisterFile/instruction_int_reg[7]
-    SLICE_X14Y31         LUT3 (Prop_lut3_I1_O)        0.124     6.370 r  inst_decode/RegisterFile/Result[2]_INST_0_i_10/O
-                         net (fo=131, routed)         3.065     9.435    inst_decode/RegisterFile/instruction_int_reg_reg[28][0]
-    SLICE_X14Y46         LUT6 (Prop_lut6_I4_O)        0.124     9.559 f  inst_decode/RegisterFile/Result[12]_INST_0_i_44/O
-                         net (fo=2, routed)           1.027    10.587    inst_decode/RegisterFile/Result[12]_INST_0_i_44_n_0
-    SLICE_X14Y47         LUT6 (Prop_lut6_I1_O)        0.124    10.711 r  inst_decode/RegisterFile/Result[13]_INST_0_i_62/O
-                         net (fo=2, routed)           0.664    11.375    inst_decode/RegisterFile/Result[13]_INST_0_i_62_n_0
-    SLICE_X12Y48         LUT6 (Prop_lut6_I1_O)        0.124    11.499 r  inst_decode/RegisterFile/Result[13]_INST_0_i_57/O
-                         net (fo=3, routed)           0.825    12.324    inst_decode/RegisterFile/Result[13]_INST_0_i_57_n_0
-    SLICE_X13Y48         LUT6 (Prop_lut6_I0_O)        0.124    12.448 r  inst_decode/RegisterFile/Result[13]_INST_0_i_52/O
-                         net (fo=5, routed)           1.193    13.641    inst_decode/RegisterFile/Result[13]_INST_0_i_52_n_0
-    SLICE_X11Y49         LUT5 (Prop_lut5_I0_O)        0.124    13.765 r  inst_decode/RegisterFile/Result[13]_INST_0_i_46/O
-                         net (fo=5, routed)           0.831    14.596    inst_decode/RegisterFile/Result[13]_INST_0_i_46_n_0
-    SLICE_X9Y49          LUT6 (Prop_lut6_I3_O)        0.124    14.720 r  inst_decode/RegisterFile/Result[13]_INST_0_i_38/O
-                         net (fo=4, routed)           1.198    15.918    inst_decode/RegisterFile/Result[13]_INST_0_i_38_n_0
-    SLICE_X8Y50          LUT6 (Prop_lut6_I5_O)        0.124    16.042 r  inst_decode/RegisterFile/Result[15]_INST_0_i_39/O
-                         net (fo=3, routed)           1.117    17.159    inst_decode/RegisterFile/Result[15]_INST_0_i_39_n_0
-    SLICE_X6Y50          LUT6 (Prop_lut6_I4_O)        0.124    17.283 r  inst_decode/RegisterFile/Result[15]_INST_0_i_31/O
-                         net (fo=4, routed)           1.176    18.459    inst_decode/RegisterFile/Result[15]_INST_0_i_31_n_0
-    SLICE_X6Y49          LUT6 (Prop_lut6_I0_O)        0.124    18.583 r  inst_decode/RegisterFile/Result[15]_INST_0_i_22/O
-                         net (fo=3, routed)           1.021    19.604    inst_decode/RegisterFile/Result[15]_INST_0_i_22_n_0
-    SLICE_X6Y47          LUT6 (Prop_lut6_I5_O)        0.124    19.728 f  inst_decode/RegisterFile/Result[15]_INST_0_i_10/O
-                         net (fo=4, routed)           0.822    20.550    inst_decode/RegisterFile/Result[15]_INST_0_i_10_n_0
-    SLICE_X5Y47          LUT6 (Prop_lut6_I3_O)        0.124    20.674 r  inst_decode/RegisterFile/Result[20]_INST_0_i_19/O
-                         net (fo=2, routed)           1.127    21.801    inst_decode/RegisterFile/Result[20]_INST_0_i_19_n_0
-    SLICE_X4Y47          LUT6 (Prop_lut6_I5_O)        0.124    21.925 f  inst_decode/RegisterFile/Result[31]_INST_0_i_49/O
-                         net (fo=1, routed)           0.818    22.744    inst_decode/RegisterFile/Result[31]_INST_0_i_49_n_0
-    SLICE_X2Y46          LUT6 (Prop_lut6_I1_O)        0.124    22.868 r  inst_decode/RegisterFile/Result[31]_INST_0_i_45/O
-                         net (fo=2, routed)           0.721    23.589    inst_decode/RegisterFile/Result[31]_INST_0_i_45_n_0
-    SLICE_X3Y43          LUT5 (Prop_lut5_I0_O)        0.124    23.713 r  inst_decode/RegisterFile/Result[30]_INST_0_i_21/O
-                         net (fo=1, routed)           0.762    24.475    inst_decode/RegisterFile/Result[30]_INST_0_i_21_n_0
-    SLICE_X3Y42          LUT5 (Prop_lut5_I0_O)        0.124    24.599 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
-                         net (fo=1, routed)           0.412    25.011    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
-    SLICE_X3Y41          LUT5 (Prop_lut5_I0_O)        0.124    25.135 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
-                         net (fo=3, routed)           0.815    25.950    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
-    SLICE_X3Y40          LUT3 (Prop_lut3_I0_O)        0.124    26.074 r  inst_decode/RegisterFile/Result[28]_INST_0_i_4/O
-                         net (fo=3, routed)           1.476    27.550    execute/ALU_inst/Result[31][27]
-    SLICE_X1Y32          LUT6 (Prop_lut6_I3_O)        0.124    27.674 r  execute/ALU_inst/Result[28]_INST_0_i_2/O
-                         net (fo=1, routed)           0.773    28.447    execute/ALU_inst/Result[28]_INST_0_i_2_n_0
-    SLICE_X1Y34          LUT5 (Prop_lut5_I2_O)        0.124    28.571 r  execute/ALU_inst/Result[28]_INST_0/O
-                         net (fo=1, routed)           0.000    28.571    Result[28]
-    SLICE_X1Y34          FDRE                                         r  ALUResult_int_reg_reg[28]/D
+    SLICE_X9Y11          FDRE                         0.000     0.000 r  ALUSrc_int_reg_reg_rep__1/C
+    SLICE_X9Y11          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ALUSrc_int_reg_reg_rep__1/Q
+                         net (fo=128, routed)         3.897     4.353    execute/Result[11]_INST_0_i_16
+    SLICE_X39Y11         LUT3 (Prop_lut3_I2_O)        0.154     4.507 r  execute/Result[2]_INST_0_i_10/O
+                         net (fo=131, routed)         4.511     9.018    inst_decode/RegisterFile/RD2[0]
+    SLICE_X4Y4           LUT6 (Prop_lut6_I1_O)        0.327     9.345 r  inst_decode/RegisterFile/Result[22]_INST_0_i_128/O
+                         net (fo=5, routed)           1.043    10.388    inst_decode/RegisterFile/Result[22]_INST_0_i_128_n_0
+    SLICE_X2Y2           LUT6 (Prop_lut6_I4_O)        0.124    10.512 f  inst_decode/RegisterFile/Result[22]_INST_0_i_116/O
+                         net (fo=3, routed)           1.314    11.826    inst_decode/RegisterFile/Result[22]_INST_0_i_116_n_0
+    SLICE_X7Y5           LUT6 (Prop_lut6_I1_O)        0.124    11.950 r  inst_decode/RegisterFile/Result[22]_INST_0_i_97/O
+                         net (fo=3, routed)           1.058    13.008    inst_decode/RegisterFile/Result[22]_INST_0_i_97_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I4_O)        0.124    13.132 r  inst_decode/RegisterFile/Result[22]_INST_0_i_81/O
+                         net (fo=3, routed)           0.304    13.436    inst_decode/RegisterFile/Result[22]_INST_0_i_81_n_0
+    SLICE_X8Y7           LUT6 (Prop_lut6_I0_O)        0.124    13.560 r  inst_decode/RegisterFile/Result[22]_INST_0_i_68/O
+                         net (fo=3, routed)           0.838    14.398    inst_decode/RegisterFile/Result[22]_INST_0_i_68_n_0
+    SLICE_X8Y6           LUT6 (Prop_lut6_I0_O)        0.124    14.522 r  inst_decode/RegisterFile/Result[22]_INST_0_i_58/O
+                         net (fo=4, routed)           1.363    15.885    inst_decode/RegisterFile/Result[22]_INST_0_i_58_n_0
+    SLICE_X8Y2           LUT6 (Prop_lut6_I0_O)        0.124    16.009 r  inst_decode/RegisterFile/Result[22]_INST_0_i_47/O
+                         net (fo=2, routed)           0.968    16.977    inst_decode/RegisterFile/Result[22]_INST_0_i_47_n_0
+    SLICE_X12Y3          LUT6 (Prop_lut6_I1_O)        0.124    17.101 r  inst_decode/RegisterFile/Result[20]_INST_0_i_34/O
+                         net (fo=3, routed)           0.831    17.932    inst_decode/RegisterFile/Result[20]_INST_0_i_34_n_0
+    SLICE_X13Y2          LUT5 (Prop_lut5_I0_O)        0.124    18.056 r  inst_decode/RegisterFile/Result[22]_INST_0_i_31/O
+                         net (fo=2, routed)           0.940    18.996    inst_decode/RegisterFile/Result[22]_INST_0_i_31_n_0
+    SLICE_X28Y4          LUT5 (Prop_lut5_I4_O)        0.124    19.120 r  inst_decode/RegisterFile/Result[22]_INST_0_i_23/O
+                         net (fo=2, routed)           1.164    20.283    inst_decode/RegisterFile/Result[22]_INST_0_i_23_n_0
+    SLICE_X28Y1          LUT6 (Prop_lut6_I4_O)        0.124    20.407 r  inst_decode/RegisterFile/Result[22]_INST_0_i_13/O
+                         net (fo=4, routed)           0.811    21.218    inst_decode/RegisterFile/Result[22]_INST_0_i_13_n_0
+    SLICE_X28Y2          LUT6 (Prop_lut6_I5_O)        0.124    21.342 r  inst_decode/RegisterFile/Result[31]_INST_0_i_37/O
+                         net (fo=2, routed)           0.967    22.308    inst_decode/RegisterFile/Result[31]_INST_0_i_37_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.124    22.432 r  inst_decode/RegisterFile/Result[30]_INST_0_i_22/O
+                         net (fo=1, routed)           0.494    22.926    inst_decode/RegisterFile/Result[30]_INST_0_i_22_n_0
+    SLICE_X30Y3          LUT5 (Prop_lut5_I0_O)        0.117    23.043 f  inst_decode/RegisterFile/Result[30]_INST_0_i_18/O
+                         net (fo=1, routed)           0.570    23.614    inst_decode/RegisterFile/Result[30]_INST_0_i_18_n_0
+    SLICE_X32Y3          LUT5 (Prop_lut5_I0_O)        0.348    23.962 r  inst_decode/RegisterFile/Result[30]_INST_0_i_12/O
+                         net (fo=3, routed)           0.839    24.801    inst_decode/RegisterFile/Result[30]_INST_0_i_12_n_0
+    SLICE_X35Y4          LUT3 (Prop_lut3_I0_O)        0.124    24.925 r  inst_decode/RegisterFile/Result[28]_INST_0_i_4/O
+                         net (fo=3, routed)           0.985    25.911    execute/ALU_inst/Result[31][27]
+    SLICE_X39Y8          LUT6 (Prop_lut6_I0_O)        0.124    26.035 r  execute/ALU_inst/Result[28]_INST_0_i_1/O
+                         net (fo=1, routed)           0.729    26.764    execute/ALU_inst/Result[28]_INST_0_i_1_n_0
+    SLICE_X38Y8          LUT5 (Prop_lut5_I0_O)        0.124    26.888 r  execute/ALU_inst/Result[28]_INST_0/O
+                         net (fo=1, routed)           0.000    26.888    Result[28]
+    SLICE_X38Y8          FDRE                                         r  ALUResult_int_reg_reg[28]/D
   -------------------------------------------------------------------    -------------------
 
 
@@ -790,37 +773,71 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[11]/C
+  Source:                 WriteData_int_reg_reg[10]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[11]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_A/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.209ns  (logic 0.141ns (67.433%)  route 0.068ns (32.567%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X9Y39          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[11]/C
-    SLICE_X9Y39          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[11]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[11]
-    SLICE_X9Y39          FDRE                                         r  ALUResultOut_int_reg_reg[11]/D
+    SLICE_X11Y13         FDRE                         0.000     0.000 r  WriteData_int_reg_reg[10]/C
+    SLICE_X11Y13         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[10]/Q
+                         net (fo=16, routed)          0.068     0.209    memory/dataMem_inst/mips_mem_reg_512_767_10_10/D
+    SLICE_X10Y13         RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_A/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[12]/C
+  Source:                 WriteData_int_reg_reg[10]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[12]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_B/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.209ns  (logic 0.141ns (67.433%)  route 0.068ns (32.567%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y39          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[12]/C
-    SLICE_X5Y39          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[12]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[12]
-    SLICE_X5Y39          FDRE                                         r  ALUResultOut_int_reg_reg[12]/D
+    SLICE_X11Y13         FDRE                         0.000     0.000 r  WriteData_int_reg_reg[10]/C
+    SLICE_X11Y13         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[10]/Q
+                         net (fo=16, routed)          0.068     0.209    memory/dataMem_inst/mips_mem_reg_512_767_10_10/D
+    SLICE_X10Y13         RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_B/I
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 WriteData_int_reg_reg[10]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_C/I
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.209ns  (logic 0.141ns (67.433%)  route 0.068ns (32.567%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y13         FDRE                         0.000     0.000 r  WriteData_int_reg_reg[10]/C
+    SLICE_X11Y13         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[10]/Q
+                         net (fo=16, routed)          0.068     0.209    memory/dataMem_inst/mips_mem_reg_512_767_10_10/D
+    SLICE_X10Y13         RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_C/I
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 WriteData_int_reg_reg[10]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_D/I
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.209ns  (logic 0.141ns (67.433%)  route 0.068ns (32.567%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y13         FDRE                         0.000     0.000 r  WriteData_int_reg_reg[10]/C
+    SLICE_X11Y13         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[10]/Q
+                         net (fo=16, routed)          0.068     0.209    memory/dataMem_inst/mips_mem_reg_512_767_10_10/D
+    SLICE_X10Y13         RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_512_767_10_10/RAMS64E_D/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -829,134 +846,100 @@ Slack:                    inf
   Destination:            ALUResultOut_int_reg_reg[13]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y38          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[13]/C
-    SLICE_X5Y38          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[13]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[13]
-    SLICE_X5Y38          FDRE                                         r  ALUResultOut_int_reg_reg[13]/D
+    SLICE_X30Y9          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[13]/C
+    SLICE_X30Y9          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  ALUResult_int_reg_reg[13]/Q
+                         net (fo=1, routed)           0.056     0.220    ALUResult_int_reg[13]
+    SLICE_X30Y9          FDRE                                         r  ALUResultOut_int_reg_reg[13]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[14]/C
+  Source:                 WriteData_int_reg_reg[13]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[14]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_A/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.250ns  (logic 0.141ns (56.317%)  route 0.109ns (43.683%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y38          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[14]/C
-    SLICE_X3Y38          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[14]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[14]
-    SLICE_X3Y38          FDRE                                         r  ALUResultOut_int_reg_reg[14]/D
+    SLICE_X15Y6          FDRE                         0.000     0.000 r  WriteData_int_reg_reg[13]/C
+    SLICE_X15Y6          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[13]/Q
+                         net (fo=16, routed)          0.109     0.250    memory/dataMem_inst/mips_mem_reg_256_511_13_13/D
+    SLICE_X12Y6          RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_A/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[17]/C
+  Source:                 WriteData_int_reg_reg[13]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[17]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_B/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.250ns  (logic 0.141ns (56.317%)  route 0.109ns (43.683%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y38          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[17]/C
-    SLICE_X7Y38          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[17]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[17]
-    SLICE_X7Y38          FDRE                                         r  ALUResultOut_int_reg_reg[17]/D
+    SLICE_X15Y6          FDRE                         0.000     0.000 r  WriteData_int_reg_reg[13]/C
+    SLICE_X15Y6          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[13]/Q
+                         net (fo=16, routed)          0.109     0.250    memory/dataMem_inst/mips_mem_reg_256_511_13_13/D
+    SLICE_X12Y6          RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_B/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[21]/C
+  Source:                 WriteData_int_reg_reg[13]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[21]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_C/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.250ns  (logic 0.141ns (56.317%)  route 0.109ns (43.683%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y32          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[21]/C
-    SLICE_X3Y32          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[21]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[21]
-    SLICE_X3Y32          FDRE                                         r  ALUResultOut_int_reg_reg[21]/D
+    SLICE_X15Y6          FDRE                         0.000     0.000 r  WriteData_int_reg_reg[13]/C
+    SLICE_X15Y6          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[13]/Q
+                         net (fo=16, routed)          0.109     0.250    memory/dataMem_inst/mips_mem_reg_256_511_13_13/D
+    SLICE_X12Y6          RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_C/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[23]/C
+  Source:                 WriteData_int_reg_reg[13]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[23]/D
+  Destination:            memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_D/I
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.250ns  (logic 0.141ns (56.317%)  route 0.109ns (43.683%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y35          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[23]/C
-    SLICE_X3Y35          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[23]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[23]
-    SLICE_X3Y35          FDRE                                         r  ALUResultOut_int_reg_reg[23]/D
+    SLICE_X15Y6          FDRE                         0.000     0.000 r  WriteData_int_reg_reg[13]/C
+    SLICE_X15Y6          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  WriteData_int_reg_reg[13]/Q
+                         net (fo=16, routed)          0.109     0.250    memory/dataMem_inst/mips_mem_reg_256_511_13_13/D
+    SLICE_X12Y6          RAMS64E                                      r  memory/dataMem_inst/mips_mem_reg_256_511_13_13/RAMS64E_D/I
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[25]/C
+  Source:                 memory/dataMem_inst/D_OUT_reg[14]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[25]/D
+  Destination:            MemOut_int_reg_reg[14]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.253ns  (logic 0.141ns (55.730%)  route 0.112ns (44.270%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y37          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[25]/C
-    SLICE_X7Y37          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[25]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[25]
-    SLICE_X7Y37          FDRE                                         r  ALUResultOut_int_reg_reg[25]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[26]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[26]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y37          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[26]/C
-    SLICE_X1Y37          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[26]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[26]
-    SLICE_X1Y37          FDRE                                         r  ALUResultOut_int_reg_reg[26]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ALUResult_int_reg_reg[27]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ALUResultOut_int_reg_reg[27]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y36          FDRE                         0.000     0.000 r  ALUResult_int_reg_reg[27]/C
-    SLICE_X3Y36          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ALUResult_int_reg_reg[27]/Q
-                         net (fo=1, routed)           0.056     0.197    ALUResult_int_reg[27]
-    SLICE_X3Y36          FDRE                                         r  ALUResultOut_int_reg_reg[27]/D
+    SLICE_X15Y13         FDRE                         0.000     0.000 r  memory/dataMem_inst/D_OUT_reg[14]/C
+    SLICE_X15Y13         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  memory/dataMem_inst/D_OUT_reg[14]/Q
+                         net (fo=1, routed)           0.112     0.253    D_OUT[14]
+    SLICE_X15Y14         FDRE                                         r  MemOut_int_reg_reg[14]/D
   -------------------------------------------------------------------    -------------------
 
 

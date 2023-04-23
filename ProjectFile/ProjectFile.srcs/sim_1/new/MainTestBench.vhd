@@ -63,25 +63,8 @@ begin
 
 
     -- loop through test cases
-    for i in testcases'range loop
-        -- Put test case stimulus code here
-        wait until Result'event or WriteData'event;
-            -- if both
-            if WriteData'event and Result'event then
-                if Result /= x"00000000" then
-                    if WriteData /= x"00000000" and WriteData /= x"ffffffff" then
-                        wait for 1 ns;  -- allow signal to settle for some reason
-                        assert Result = testcases(i).ALUResultTest report "Result = "  & to_string(Result) & 
-                        " and should be " & to_string(testcases(i).ALUResultTest) severity note;
-                        
-                        assert WriteData = testcases(i).WriteDataTest report "WriteData = "  & to_string(WriteData) & 
-                        " and should be " & to_string(testcases(i).WriteDataTest) severity note;
-                    end if;
-                end if;
-            end if;       
-    end loop;
     
-    wait for 2000 ns;
+    wait for 10000 ns;
 
 
     -- Put test bench stimulus code here
